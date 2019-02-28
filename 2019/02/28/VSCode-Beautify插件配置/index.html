@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>VSCode--Beautify插件配置 | 大头</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="在工作目录下建立.jsbeautifyrc文件，输入以下内容12345678910&amp;#123;    &amp;quot;brace_style&amp;quot;: &amp;quot;none,preserve-inline&amp;quot;,    &amp;quot;indent_size&amp;quot;: 4,    &amp;quot;indent_char&amp;quot;: &amp;quot; &amp;quot;,    &amp;quot;jslint_">
+<meta property="og:type" content="article">
+<meta property="og:title" content="VSCode--Beautify插件配置">
+<meta property="og:url" content="https://liyoro.github.io/2019/02/28/VSCode-Beautify插件配置/index.html">
+<meta property="og:site_name" content="大头">
+<meta property="og:description" content="在工作目录下建立.jsbeautifyrc文件，输入以下内容12345678910&amp;#123;    &amp;quot;brace_style&amp;quot;: &amp;quot;none,preserve-inline&amp;quot;,    &amp;quot;indent_size&amp;quot;: 4,    &amp;quot;indent_char&amp;quot;: &amp;quot; &amp;quot;,    &amp;quot;jslint_">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-02-28T09:35:52.608Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="VSCode--Beautify插件配置">
+<meta name="twitter:description" content="在工作目录下建立.jsbeautifyrc文件，输入以下内容12345678910&amp;#123;    &amp;quot;brace_style&amp;quot;: &amp;quot;none,preserve-inline&amp;quot;,    &amp;quot;indent_size&amp;quot;: 4,    &amp;quot;indent_char&amp;quot;: &amp;quot; &amp;quot;,    &amp;quot;jslint_">
+  
+  <link rel="stylesheet" href="/css/index.css">
+</head>
+</html>
+<body style="
+
+
+  background-color: #eff0f6
+
+">
+  <div id="container">
+    <nav id="nav">
+  <header class="header">
+    <a href="/" class="title">liyoro</a>
+  </header>
+  <div class="ctnWrap">
+    <div class="icons">
+      
+    </div>
+    <div class="menu">
+      
+        
+            <a href="/" class="nav-menu ">HOME</a>
+          
+        
+            <a href="/about" class="nav-menu ">ABOUT</a>
+          
+        
+      
+    </div>
+  </div>
+</nav>
+    <div id="main"><section class="article">
+  <h2 class="title">VSCode--Beautify插件配置</h2>
+  <p class="sub">2019-02-28</p>
+  <article class="content">
+    <h4 id="在工作目录下建立-jsbeautifyrc文件，输入以下内容"><a href="#在工作目录下建立-jsbeautifyrc文件，输入以下内容" class="headerlink" title="在工作目录下建立.jsbeautifyrc文件，输入以下内容"></a>在工作目录下建立.jsbeautifyrc文件，输入以下内容</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;brace_style&quot;: &quot;none,preserve-inline&quot;,</span><br><span class="line">    &quot;indent_size&quot;: 4,</span><br><span class="line">    &quot;indent_char&quot;: &quot; &quot;,</span><br><span class="line">    &quot;jslint_happy&quot;: true,</span><br><span class="line">    &quot;unformatted&quot;: [&quot;&quot;],</span><br><span class="line">    &quot;css&quot;: &#123;</span><br><span class="line">        &quot;indent_size&quot;: 4</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>参数说明：</p>
+<ul>
+<li><p>brace_style，格式风格，详见官方说明（为避免和eslint默认检查冲突，建议此属性设置为 none,preserve-inline）</p>
+</li>
+<li><p>indent_size，缩进长度（为避免和eslint默认检查冲突，官方建议此属性设置为 2）</p>
+</li>
+<li><p>indent_char，缩进填充的内容</p>
+</li>
+<li><p>jslint_happy:true，若你要搭配jslint使用，请开启此选项</p>
+</li>
+<li><p>unformatted:[“a”, “pre”]，这里放不需要格式化的标签类型。注意template也是默认不格式化的，.vue的template标签如果需要格式化请在.jsbeautifyrc重新定义不带template的声明属性。</p>
+</li>
+</ul>
+<h4 id="保存时自动格式化"><a href="#保存时自动格式化" class="headerlink" title="保存时自动格式化"></a>保存时自动格式化</h4><p>在VSCode的用户配置文件里添加</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">editor.formatOnSave:true</span><br></pre></td></tr></table></figure>
+<h4 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h4><p>在VSCode的键盘快捷方式文件里添加</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;key&quot;: &quot;cmd+b&quot;,//自定义键位</span><br><span class="line">  &quot;command&quot;: &quot;HookyQR.beautify&quot;,</span><br><span class="line">  &quot;when&quot;: &quot;editorFocus&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="注："><a href="#注：" class="headerlink" title="注："></a>注：</h4><ul>
+<li><p>VSCode版本 1.31.1 (1.31.1)</p>
+</li>
+<li><p>用户配置文件所在（Code -&gt; Preferences -&gt; Settings -&gt; {}）</p>
+</li>
+<li><p>键盘快捷方式文件所在 (Code -&gt; Preferences -&gt; Keyboard Shortcuts -&gt; {})</p>
+</li>
+</ul>
+
+  </article>
+  <footer class="f-cf">
+    
+    
+      <a href="/2019/02/26/我的VSCode用到的插件/" class="link f-fr">我的VSCode用到的插件⟶</a>
+    
+  </footer>
+</section></div>
+    <footer id="footer" class="f-cf">
+  liyoro@163.com
+  
+  <span class="copyright">All rights reserved @liyoro</span>
+</footer>
+  </div>
+</body>
+</html>
