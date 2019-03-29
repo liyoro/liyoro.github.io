@@ -2,9 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://liyoro.github.io/about/index.html</loc>
+    
+    <lastmod>2019-03-29T04:13:22.282Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://liyoro.github.io/2019/03/18/Vue-CLI-3-0%E5%9B%BE%E5%BD%A2%E5%8C%96%E7%95%8C%E9%9D%A2%E5%88%9D%E8%AF%95/</loc>
+    
+    <lastmod>2019-03-29T04:11:54.063Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://liyoro.github.io/2019/02/26/%E6%88%91%E7%9A%84VSCode%E7%94%A8%E5%88%B0%E7%9A%84%E6%8F%92%E4%BB%B6/</loc>
     
-    <lastmod>2019-02-28T09:35:55.767Z</lastmod>
+    <lastmod>2019-03-15T00:42:38.968Z</lastmod>
     
   </url>
   
@@ -12,13 +26,6 @@
     <loc>https://liyoro.github.io/2019/02/28/VSCode-Beautify%E6%8F%92%E4%BB%B6%E9%85%8D%E7%BD%AE/</loc>
     
     <lastmod>2019-02-28T09:35:52.608Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://liyoro.github.io/about/index.html</loc>
-    
-    <lastmod>2019-02-15T18:21:31.995Z</lastmod>
     
   </url>
   
