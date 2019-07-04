@@ -5,17 +5,17 @@
   
   <title>普通web项目（非webpack打包）用flexible进行响应式改造的方法 | 大头</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="主要是要对项目里面的css进行改造。把px转为rem。 1、保证每个html页面引入flexible.js文件flexible.js 需进行改造才能适用于电脑屏幕 2、css中px转为rem自动转换工具 此工具按照说明操作即可，不用自己手动一个个把px转为rem 3、按实际效果对css进行微调以上，基本可以实现html页面的响应式了，测试可用，尚未对具体生产项目进行，慎用。">
+  <meta name="description" content="主要是要对项目里面的css进行改造。把px转为rem。 1、保证每个html页面引入flexible.js文件flexible.js 需进行改造才能适用于电脑屏幕 2、css中px转为rem自动转换工具 此工具按照说明操作即可，不用自己手动一个个把px转为rem 3、echarts图表的适配使用echarts图表使用的是px单位，工程中在上述步骤后，使用的是rem单位，所以要对echarts的数值">
 <meta property="og:type" content="article">
 <meta property="og:title" content="普通web项目（非webpack打包）用flexible进行响应式改造的方法">
 <meta property="og:url" content="https://liyoro.github.io/2019/07/02/普通web项目（非webpack打包）用flexible进行响应式改造的方法/index.html">
 <meta property="og:site_name" content="大头">
-<meta property="og:description" content="主要是要对项目里面的css进行改造。把px转为rem。 1、保证每个html页面引入flexible.js文件flexible.js 需进行改造才能适用于电脑屏幕 2、css中px转为rem自动转换工具 此工具按照说明操作即可，不用自己手动一个个把px转为rem 3、按实际效果对css进行微调以上，基本可以实现html页面的响应式了，测试可用，尚未对具体生产项目进行，慎用。">
+<meta property="og:description" content="主要是要对项目里面的css进行改造。把px转为rem。 1、保证每个html页面引入flexible.js文件flexible.js 需进行改造才能适用于电脑屏幕 2、css中px转为rem自动转换工具 此工具按照说明操作即可，不用自己手动一个个把px转为rem 3、echarts图表的适配使用echarts图表使用的是px单位，工程中在上述步骤后，使用的是rem单位，所以要对echarts的数值">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-07-02T03:41:15.703Z">
+<meta property="og:updated_time" content="2019-07-04T02:45:42.764Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="普通web项目（非webpack打包）用flexible进行响应式改造的方法">
-<meta name="twitter:description" content="主要是要对项目里面的css进行改造。把px转为rem。 1、保证每个html页面引入flexible.js文件flexible.js 需进行改造才能适用于电脑屏幕 2、css中px转为rem自动转换工具 此工具按照说明操作即可，不用自己手动一个个把px转为rem 3、按实际效果对css进行微调以上，基本可以实现html页面的响应式了，测试可用，尚未对具体生产项目进行，慎用。">
+<meta name="twitter:description" content="主要是要对项目里面的css进行改造。把px转为rem。 1、保证每个html页面引入flexible.js文件flexible.js 需进行改造才能适用于电脑屏幕 2、css中px转为rem自动转换工具 此工具按照说明操作即可，不用自己手动一个个把px转为rem 3、echarts图表的适配使用echarts图表使用的是px单位，工程中在上述步骤后，使用的是rem单位，所以要对echarts的数值">
   
   <link rel="stylesheet" href="/css/index.css">
 </head>
@@ -56,7 +56,18 @@
 <h2 id="1、保证每个html页面引入flexible-js文件"><a href="#1、保证每个html页面引入flexible-js文件" class="headerlink" title="1、保证每个html页面引入flexible.js文件"></a>1、保证每个html页面引入flexible.js文件</h2><p><a href="https://github.com/liyoro/flexible-web" target="_blank" rel="noopener">flexible.js</a> 需进行改造才能适用于电脑屏幕</p>
 <h2 id="2、css中px转为rem"><a href="#2、css中px转为rem" class="headerlink" title="2、css中px转为rem"></a>2、css中px转为rem</h2><p><a href="https://github.com/MatthewKosloski/pixem" target="_blank" rel="noopener">自动转换工具</a></p>
 <p>此工具按照说明操作即可，不用自己手动一个个把px转为rem</p>
-<h2 id="3、按实际效果对css进行微调"><a href="#3、按实际效果对css进行微调" class="headerlink" title="3、按实际效果对css进行微调"></a>3、按实际效果对css进行微调</h2><p>以上，基本可以实现html页面的响应式了，测试可用，尚未对具体生产项目进行，慎用。</p>
+<h2 id="3、echarts图表的适配使用"><a href="#3、echarts图表的适配使用" class="headerlink" title="3、echarts图表的适配使用"></a>3、echarts图表的适配使用</h2><p>echarts图表使用的是px单位，工程中在上述步骤后，使用的是rem单位，所以要对echarts的数值相关配置进行转换，不然图表样式会混乱。</p>
+<p>转换方法代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">function remToPx(rem) &#123;</span><br><span class="line">  	var fontSize = document.documentElement.style.fontSize;</span><br><span class="line">    return Math.floor(rem * fontSize.replace(&apos;px&apos;, &apos;&apos;));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>echarts图表的配置代码里面，数值相关：fontsize、lineHeight、right、left、top、bottom、padding、barWidth等等直接用remToPx(rem值)替代。</p>
+<p>例如：一个基于1920x1080像素的设计，换算基数是192</p>
+<p>未转换前写法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">fontsize: 12px</span><br><span class="line">lineHeight: 30px</span><br></pre></td></tr></table></figure>
+<p>12px的rem值是0.0625，30px的rem值是0.1563。这些值可以通过步骤2的工具转换。</p>
+<p>转换后写法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">fontsize: remToPx(0.0625)</span><br><span class="line">lineHeight: remToPx(0.1563)</span><br></pre></td></tr></table></figure>
+<h2 id="4、按实际效果对css进行微调"><a href="#4、按实际效果对css进行微调" class="headerlink" title="4、按实际效果对css进行微调"></a>4、按实际效果对css进行微调</h2><p>以上，基本可以实现html页面的响应式了，测试可用。尚未对具体老生产项目进行，慎用。</p>
+<h2 id="5、缺点"><a href="#5、缺点" class="headerlink" title="5、缺点"></a>5、缺点</h2><p>echarts图表在浏览器大小变化后需要刷新界面才会完美，不大自动。</p>
 
   </article>
   <footer class="f-cf">
