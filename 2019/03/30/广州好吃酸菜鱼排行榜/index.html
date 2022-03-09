@@ -1,0 +1,512 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="我自己吃的，仅代表个人感受">
+  <meta name="author" content="liyoro">
+  <meta name="keywords" content="前端,Vue,数据可视化">
+  
+  <title>广州好吃酸菜鱼排行榜 - 大头</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.7.2/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+  
+<link rel="stylesheet" href="//at.alicdn.com/t/font_2758859_ounhe3bbaa.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"liyoro.com","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"04CJAnEXCVfX1bWMJMbPyEoA-gzGzoHsz","app_key":"SWmIhOX3zEAuJ2D9qLEJQugF","server_url":null}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>liyoro</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="广州好吃酸菜鱼排行榜">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2019-03-30 16:13" pubdate>
+        2019年3月30日 下午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      786 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      8
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">广州好吃酸菜鱼排行榜</h1>
+            
+            <div class="markdown-body">
+              <p>只是我吃过的酸菜鱼，在自己心目中排个名而已。</p>
+<h2 id="1、阿强家酸菜鱼-天河北店"><a href="#1、阿强家酸菜鱼-天河北店" class="headerlink" title="1、阿强家酸菜鱼(天河北店)"></a>1、阿强家酸菜鱼(天河北店)</h2><h4 id="地址：广州市天河区天河北路614号2楼"><a href="#地址：广州市天河区天河北路614号2楼" class="headerlink" title="地址：广州市天河区天河北路614号2楼"></a>地址：<a target="_blank" rel="noopener" href="http://f.amap.com/4CeCd_0FB4yz4">广州市天河区天河北路614号2楼</a></h4><p>注意店铺名字，是阿强家，不是叫阿强，叫阿强的都是山寨货。虽然如今这家的酸菜鱼没以前口感好，但是色、香、味方面是目前我吃过的广州最好的。</p>
+<p>酸菜鱼有皖鱼、鲈鱼、鲟龙鱼，越贵越好吃就对了。皖鱼以前是很少骨头的，现在不行了，很多骨刺。肉质方面，没以前鲜嫩了，有点软撇撇的，不知道是不是放久了……但是吃过很多次都如此。</p>
+<p>每次必加龙口粉丝，早期的龙口粉丝比现在粗，很爽口。现在的稍微差一点了，店员说是同一家采购的。</p>
+<p><img src="/img/IMG_1967.JPG" srcset="/img/loading.gif" lazyload></p>
+<p>这是我比较喜欢的一道菜：香辣牛展。点的时候可以叫服务员把香料和牛肉这样分开。不然捞好的牛展十分辣，不太适合我这样的广东人。</p>
+<p><img src="/img/IMG_4587.JPG" srcset="/img/loading.gif" lazyload></p>
+<p>这是我比较喜欢的第二道菜：不辣的担担面。</p>
+<p><img src="/img/IMG_5921.jpg" srcset="/img/loading.gif" lazyload></p>
+<p>这是我比较喜欢的第三道菜：口水鸡。口感没以前嫩，但是味道依然好。而且现在加了特效，蛮好玩的。</p>
+<p><img src="/img/IMG_0161.gif" srcset="/img/loading.gif" lazyload></p>
+<p>此外，阿强家里面的很多东西都挺好吃的，可以一一尝试一下。</p>
+<h2 id="2、太二酸菜鱼-骏壹万邦店"><a href="#2、太二酸菜鱼-骏壹万邦店" class="headerlink" title="2、太二酸菜鱼(骏壹万邦店)"></a>2、太二酸菜鱼(骏壹万邦店)</h2><h4 id="地址：曙光路81号骏壹万邦广场4楼"><a href="#地址：曙光路81号骏壹万邦广场4楼" class="headerlink" title="地址：曙光路81号骏壹万邦广场4楼"></a>地址：<a target="_blank" rel="noopener" href="http://f.amap.com/TWpr_098500e">曙光路81号骏壹万邦广场4楼</a></h4><p>这一家也是挺神奇的，可以说，除了酸菜鱼好吃，可以试试外，其他都一般般，可能我口味问题吧。汤底有菊花瓣。分量还蛮足的，就是有点贵了，相比来说。</p>
+<h2 id="3、蓉鱼-天河万科店"><a href="#3、蓉鱼-天河万科店" class="headerlink" title="3、蓉鱼(天河万科店)"></a>3、蓉鱼(天河万科店)</h2><h4 id="地址：华观路1932号-天河万科广场五楼）521、522铺"><a href="#地址：华观路1932号-天河万科广场五楼）521、522铺" class="headerlink" title="地址：华观路1932号(天河万科广场五楼）521、522铺"></a>地址：<a target="_blank" rel="noopener" href="http://f.amap.com/5Tt7K_00D6Zj7">华观路1932号(天河万科广场五楼）521、522铺</a></h4><p>这一家挺神奇的，可以说，除了酸菜鱼好吃，可以试试外，其他都一般般，可能我口味问题吧。</p>
+<h2 id="4、酸的起酸菜鱼（天河北店）"><a href="#4、酸的起酸菜鱼（天河北店）" class="headerlink" title="4、酸的起酸菜鱼（天河北店）"></a>4、酸的起酸菜鱼（天河北店）</h2><h4 id="地址：天河北路601号华标广场F1"><a href="#地址：天河北路601号华标广场F1" class="headerlink" title="地址：天河北路601号华标广场F1"></a>地址：<a target="_blank" rel="noopener" href="http://f.amap.com/4ctoh_0796qRr">天河北路601号华标广场F1</a></h4><p>因为阿强家没位置，来这里了，2家离的不远。这家经常有优惠活动。鱼的香、味有阿强家的9成，鱼肉的口感比阿强的好。可惜有鱼鳞。</p>
+<h2 id="5、三傻老坛酸菜鱼"><a href="#5、三傻老坛酸菜鱼" class="headerlink" title="5、三傻老坛酸菜鱼"></a>5、三傻老坛酸菜鱼</h2><h4 id="地址：云城东路501号万达广场白云金街1层B区167-168号铺"><a href="#地址：云城东路501号万达广场白云金街1层B区167-168号铺" class="headerlink" title="地址：云城东路501号万达广场白云金街1层B区167-168号铺"></a>地址：<a target="_blank" rel="noopener" href="http://f.amap.com/s66U_0606YIw">云城东路501号万达广场白云金街1层B区167-168号铺</a></h4><p>鱼的香、味有阿强家的7成吧，鱼肉的口感比阿强的好，很厚实。汤底有菊花瓣。</p>
+<h2 id="6、太七老坛酸菜鱼（曜一城店）"><a href="#6、太七老坛酸菜鱼（曜一城店）" class="headerlink" title="6、太七老坛酸菜鱼（曜一城店）"></a>6、太七老坛酸菜鱼（曜一城店）</h2><h4 id="地址：天河区天河北路717号曜一城三楼自编D15单元"><a href="#地址：天河区天河北路717号曜一城三楼自编D15单元" class="headerlink" title="地址：天河区天河北路717号曜一城三楼自编D15单元"></a>地址：<a target="_blank" rel="noopener" href="http://f.amap.com/2EQ1h_0526usy">天河区天河北路717号曜一城三楼自编D15单元</a></h4><p>鱼的香、味有阿强家的6成吧，鱼肉口感不错，汤底有菊花瓣。服务一般，要自己倒水喝。</p>
+<h2 id="7、一哥酸菜鱼（广州长兴路店）"><a href="#7、一哥酸菜鱼（广州长兴路店）" class="headerlink" title="7、一哥酸菜鱼（广州长兴路店）"></a>7、一哥酸菜鱼（广州长兴路店）</h2><h4 id="地址：天河区长湴西大街优托邦旁夜市街A1档"><a href="#地址：天河区长湴西大街优托邦旁夜市街A1档" class="headerlink" title="地址：天河区长湴西大街优托邦旁夜市街A1档"></a>地址：<a target="_blank" rel="noopener" href="http://f.amap.com/1ShXE_08F3Txo">天河区长湴西大街优托邦旁夜市街A1档</a></h4><p>算是四川的风味。量少，色、香、味都不行。鱼貌似加了很多嫩肉粉，没有鱼的鲜嫩，是加了料的那种嫩，不推荐吃，除非饿晕了。</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E7%BE%8E%E9%A3%9F/">美食</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E7%BE%8E%E9%A3%9F/">美食</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2019/04/01/remove-bg/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">remove-bg（好玩工具推荐）</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2019/03/29/Vue-CLI3-EsLint%E9%85%8D%E7%BD%AE/">
+                        <span class="hidden-mobile">Vue CLI3 EsLint配置</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- LeanCloud 统计PV -->
+        <span id="leancloud-site-pv-container" style="display: none">
+            总访问量 
+            <span id="leancloud-site-pv"></span>
+             次
+          </span>
+      
+      
+        <!-- LeanCloud 统计UV -->
+        <span id="leancloud-site-uv-container" style="display: none">
+            总访客数 
+            <span id="leancloud-site-uv"></span>
+             人
+          </span>
+      
+
+    
+  </div>
+
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.3/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.1/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+  <script defer src="/js/leancloud.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

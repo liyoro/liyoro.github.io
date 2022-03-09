@@ -1,0 +1,551 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="通过Loca.ScatterLayer展示下GeoHUB的简单使用">
+  <meta name="author" content="liyoro">
+  <meta name="keywords" content="前端,Vue,数据可视化">
+  
+  <title>高德开放平台GeoHUB初用（Vue使用高德地图Loca 2.0） - 大头</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.7.2/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+  
+<link rel="stylesheet" href="//at.alicdn.com/t/font_2758859_ounhe3bbaa.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"liyoro.com","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"04CJAnEXCVfX1bWMJMbPyEoA-gzGzoHsz","app_key":"SWmIhOX3zEAuJ2D9qLEJQugF","server_url":null}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>liyoro</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="高德开放平台GeoHUB初用（Vue使用高德地图Loca 2.0）">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-06-24 22:37" pubdate>
+        2020年6月24日 晚上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      963 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      14
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">高德开放平台GeoHUB初用（Vue使用高德地图Loca 2.0）</h1>
+            
+            <div class="markdown-body">
+              <p><a target="_blank" rel="noopener" href="https://geohub.amap.com/">高德开放平台GeoHUB</a>，高德不声不息出的这玩意挺吊的。</p>
+<p>以往地图打点、连线、做特定地市的区域地图，都不知道哪里找<code>GeoJSON</code>数据的，现在有这东西就超级方便了。结合高德地图的api，挺好用的了。这里通过<code>Loca.ScatterLayer</code>的来展示下<code>GeoHUB</code>的简单使用。</p>
+<p><img src="/img/Snip20210901_74.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="知识"><a href="#知识" class="headerlink" title="知识"></a>知识</h2><ul>
+<li>1、此文涉及<a href="https://liyoro.com/2020/06/20/Vue%E5%AF%B9%E9%AB%98%E5%BE%B7%E5%9C%B0%E5%9B%BE2.0%E7%9A%84%E5%B0%81%E8%A3%85%E4%BD%BF%E7%94%A8/">Vue对高德地图2.0的封装使用</a>，这里用 <a target="_blank" rel="noopener" href="https://lbs.amap.com/api/loca-v2/demo-overview">高德地图Loca 2.0</a> 的呼吸点（也叫散射点、贴地点、水波点）的制作过程来演示</li>
+<li>2、<code>GeoHUB</code>生成的<code>geojosn</code>数据文件使用涉及 <a href="https://liyoro.com/2020/05/26/vue%E6%9C%AC%E5%9C%B0%E6%A8%A1%E6%8B%9F%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%AF%B7%E6%B1%82mock%E6%95%B0%E6%8D%AE/">vue本地模拟服务器请求mock数据</a></li>
+<li>3、<code>viewMode: &#39;3D&#39;</code> ，地图初始化的时候要设置成 3D 模式，否则图层会失去高度信息</li>
+<li>4、<a target="_blank" rel="noopener" href="https://lbs.amap.com/api/loca-v2/api">Loca 2.0 API</a></li>
+</ul>
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><h3 id="components-–-map-–-locaPoint-vue"><a href="#components-–-map-–-locaPoint-vue" class="headerlink" title="components – map – locaPoint.vue"></a>components – map – locaPoint.vue</h3><p>呼吸点的加载代码主要如下，制作geo地图数据具体过程参考下节<code>GeoHUB制作地图geo数据</code>相关介绍</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs stylus"><span class="hljs-function"><span class="hljs-title">initBreathPoint</span><span class="hljs-params">()</span></span> &#123;<br>  this<span class="hljs-selector-class">.breathPoint</span> = new Loca<span class="hljs-selector-class">.ScatterLayer</span>(&#123;<br>    loca: this<span class="hljs-selector-class">.loca</span>,<br>    zIndex: <span class="hljs-number">113</span>,<br>    <span class="hljs-attribute">opacity</span>: <span class="hljs-number">1</span>,<br>    visible: true,<br>    zooms: <span class="hljs-selector-attr">[2, 22]</span><br>  &#125;)<br>  <span class="hljs-comment">// 这里加载geo地图数据</span><br>  this<span class="hljs-selector-class">.breathPoint</span><span class="hljs-selector-class">.setSource</span>(this.geoLevelF)<br>  this<span class="hljs-selector-class">.breathPoint</span><span class="hljs-selector-class">.setStyle</span>(&#123;<br>    unit: <span class="hljs-string">&#x27;meter&#x27;</span>,<br>    size: <span class="hljs-selector-attr">[520, 520]</span>,<br>    borderWidth: <span class="hljs-number">520</span>,<br>    borderColor: <span class="hljs-string">&#x27;rgba(250,250,250,1)&#x27;</span>,<br>    duration: <span class="hljs-number">500</span>,<br>    animate: true,<br>    texture: <span class="hljs-string">&#x27;https://a.amap.com/Loca/static/loca-v2/demos/images/breath_yellow.png&#x27;</span>,<br>    <span class="hljs-attribute">color</span>: <span class="hljs-string">&#x27;rgba(200,200,200,1)&#x27;</span><br>  &#125;)<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="GeoHUB-制作地图geo数据"><a href="#GeoHUB-制作地图geo数据" class="headerlink" title="GeoHUB 制作地图geo数据"></a><a target="_blank" rel="noopener" href="https://geohub.amap.com/">GeoHUB</a> 制作地图geo数据</h3><ul>
+<li>1、选择绘制点功能，然后就可以在地图上标点。具体位置可以在搜索栏搜索定位。这里随便选了几个地点。</li>
+</ul>
+<p><img src="/img/Snip20210901_75.png" srcset="/img/loading.gif" lazyload></p>
+<ul>
+<li>2、如果对数据有定制要求，可以添加自定义的属性字段。例如类型、颜色、分组……</li>
+</ul>
+<p><img src="/img/Snip20210901_76.png" srcset="/img/loading.gif" lazyload></p>
+<ul>
+<li>3、点击保存后，返回数据集列表。点击下载，得到一个<code>huadu.geojson</code>的文件。</li>
+</ul>
+<p><img src="/img/Snip20210901_77.png" srcset="/img/loading.gif" lazyload></p>
+<ul>
+<li>4、<code>huadu.geojson</code>文件内容如下，标准的<code>geo</code>地图数据格式</li>
+</ul>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><code class="hljs json">&#123;<br>  <span class="hljs-attr">&quot;type&quot;</span>: <span class="hljs-string">&quot;FeatureCollection&quot;</span>,<br>  <span class="hljs-attr">&quot;features&quot;</span>: [<br>    &#123;<br>      <span class="hljs-attr">&quot;type&quot;</span>: <span class="hljs-string">&quot;Feature&quot;</span>,<br>      <span class="hljs-attr">&quot;properties&quot;</span>: &#123;&#125;,<br>      <span class="hljs-attr">&quot;geometry&quot;</span>: &#123; <span class="hljs-attr">&quot;type&quot;</span>: <span class="hljs-string">&quot;Point&quot;</span>, <span class="hljs-attr">&quot;coordinates&quot;</span>: [<span class="hljs-number">113.220125</span>, <span class="hljs-number">23.404326</span>] &#125;<br>    &#125;,<br>    &#123;<br>      <span class="hljs-attr">&quot;type&quot;</span>: <span class="hljs-string">&quot;Feature&quot;</span>,<br>      <span class="hljs-attr">&quot;properties&quot;</span>: &#123;&#125;,<br>      <span class="hljs-attr">&quot;geometry&quot;</span>: &#123; <span class="hljs-attr">&quot;type&quot;</span>: <span class="hljs-string">&quot;Point&quot;</span>, <span class="hljs-attr">&quot;coordinates&quot;</span>: [<span class="hljs-number">113.203846</span>, <span class="hljs-number">23.377273</span>] &#125;<br>    &#125;,<br>    &#123;<br>      <span class="hljs-attr">&quot;type&quot;</span>: <span class="hljs-string">&quot;Feature&quot;</span>,<br>      <span class="hljs-attr">&quot;properties&quot;</span>: &#123;&#125;,<br>      <span class="hljs-attr">&quot;geometry&quot;</span>: &#123; <span class="hljs-attr">&quot;type&quot;</span>: <span class="hljs-string">&quot;Point&quot;</span>, <span class="hljs-attr">&quot;coordinates&quot;</span>: [<span class="hljs-number">113.254308</span>, <span class="hljs-number">23.416872</span>] &#125;<br>    &#125;,<br>    &#123;<br>      <span class="hljs-attr">&quot;type&quot;</span>: <span class="hljs-string">&quot;Feature&quot;</span>,<br>      <span class="hljs-attr">&quot;properties&quot;</span>: &#123;&#125;,<br>      <span class="hljs-attr">&quot;geometry&quot;</span>: &#123; <span class="hljs-attr">&quot;type&quot;</span>: <span class="hljs-string">&quot;Point&quot;</span>, <span class="hljs-attr">&quot;coordinates&quot;</span>: [<span class="hljs-number">113.232409</span>, <span class="hljs-number">23.426934</span>] &#125;<br>    &#125;,<br>    &#123;<br>      <span class="hljs-attr">&quot;type&quot;</span>: <span class="hljs-string">&quot;Feature&quot;</span>,<br>      <span class="hljs-attr">&quot;properties&quot;</span>: &#123;&#125;,<br>      <span class="hljs-attr">&quot;geometry&quot;</span>: &#123; <span class="hljs-attr">&quot;type&quot;</span>: <span class="hljs-string">&quot;Point&quot;</span>, <span class="hljs-attr">&quot;coordinates&quot;</span>: [<span class="hljs-number">113.161159</span>, <span class="hljs-number">23.400596</span>] &#125;<br>    &#125;,<br>    &#123;<br>      <span class="hljs-attr">&quot;type&quot;</span>: <span class="hljs-string">&quot;Feature&quot;</span>,<br>      <span class="hljs-attr">&quot;properties&quot;</span>: &#123;&#125;,<br>      <span class="hljs-attr">&quot;geometry&quot;</span>: &#123; <span class="hljs-attr">&quot;type&quot;</span>: <span class="hljs-string">&quot;Point&quot;</span>, <span class="hljs-attr">&quot;coordinates&quot;</span>: [<span class="hljs-number">113.166207</span>, <span class="hljs-number">23.385075</span>] &#125;<br>    &#125;,<br>    &#123;<br>      <span class="hljs-attr">&quot;type&quot;</span>: <span class="hljs-string">&quot;Feature&quot;</span>,<br>      <span class="hljs-attr">&quot;properties&quot;</span>: &#123;&#125;,<br>      <span class="hljs-attr">&quot;geometry&quot;</span>: &#123; <span class="hljs-attr">&quot;type&quot;</span>: <span class="hljs-string">&quot;Point&quot;</span>, <span class="hljs-attr">&quot;coordinates&quot;</span>: [<span class="hljs-number">113.307605</span>, <span class="hljs-number">23.389929</span>] &#125;<br>    &#125;,<br>    &#123;<br>      <span class="hljs-attr">&quot;type&quot;</span>: <span class="hljs-string">&quot;Feature&quot;</span>,<br>      <span class="hljs-attr">&quot;properties&quot;</span>: &#123;&#125;,<br>      <span class="hljs-attr">&quot;geometry&quot;</span>: &#123; <span class="hljs-attr">&quot;type&quot;</span>: <span class="hljs-string">&quot;Point&quot;</span>, <span class="hljs-attr">&quot;coordinates&quot;</span>: [<span class="hljs-number">113.235221</span>, <span class="hljs-number">23.496927</span>] &#125;<br>    &#125;,<br>    &#123;<br>      <span class="hljs-attr">&quot;type&quot;</span>: <span class="hljs-string">&quot;Feature&quot;</span>,<br>      <span class="hljs-attr">&quot;properties&quot;</span>: &#123;&#125;,<br>      <span class="hljs-attr">&quot;geometry&quot;</span>: &#123; <span class="hljs-attr">&quot;type&quot;</span>: <span class="hljs-string">&quot;Point&quot;</span>, <span class="hljs-attr">&quot;coordinates&quot;</span>: [<span class="hljs-number">113.155997</span>, <span class="hljs-number">23.483681</span>] &#125;<br>    &#125;<br>  ]<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>5、加载<code>geojson</code>数据。参考 <a href="https://liyoro.com/2020/05/26/vue%E6%9C%AC%E5%9C%B0%E6%A8%A1%E6%8B%9F%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%AF%B7%E6%B1%82mock%E6%95%B0%E6%8D%AE/">vue本地模拟服务器请求mock数据</a></li>
+</ul>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs gradle"><span class="hljs-keyword">this</span>.geoLevelF = <span class="hljs-keyword">new</span> Loca.GeoJSONSource(&#123;<br>  url: publicPath + `<span class="hljs-regexp">/data/</span>huadu.geojson`<br>&#125;)<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>6、设置呼吸点数据，加载到地图上显示</li>
+</ul>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs kotlin"><span class="hljs-keyword">this</span>.breathPoint.setSource(<span class="hljs-keyword">this</span>.geoLevelF)<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>7、效果</li>
+</ul>
+<p><img src="/img/Snip20210901_78.gif" srcset="/img/loading.gif" lazyload></p>
+<h2 id="代码总览"><a href="#代码总览" class="headerlink" title="代码总览"></a>代码总览</h2><p>涉及的文件如下（具体参考<strong>代码</strong>）：</p>
+<figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs 1c"><span class="hljs-string">|-- public</span><br>    <span class="hljs-string">|-- data</span><br>        <span class="hljs-string">|-- huadu.geojson</span><br><span class="hljs-string">|-- src</span><br>    <span class="hljs-string">|-- components</span><br>        <span class="hljs-string">|-- map</span><br>            <span class="hljs-string">|-- locaPoint.vue</span><br>    <span class="hljs-string">|-- views</span><br>        <span class="hljs-string">|-- amapLocaTest    // 实例所在</span><br>            <span class="hljs-string">|-- index.vue</span><br>            <span class="hljs-string">|-- index.scss</span><br>            <span class="hljs-string">|-- index.js</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><p>按<code>代码总览</code>的目录去<a target="_blank" rel="noopener" href="https://github.com/liyoro/vue-skill">代码</a>里找着看就行了。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>以上，只是简单的使用了<code>geohub</code>的<strong>绘制点</strong>功能。还有绘制线、绘制面、自定义属性、上传数据、发布数据服务等功能有兴趣的自行探索了。</p>
+<p>代码里面用Vue演示了高德地图<code>Loca 2.0</code>的一些数据可视化效果。除了呼吸点，还有<strong>脉冲线</strong>、<strong>连接线</strong>，具体看代码了。</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E9%AB%98%E5%BE%B7%E5%9C%B0%E5%9B%BE/">高德地图</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E5%89%8D%E7%AB%AF/">前端</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Vue/">Vue</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E9%AB%98%E5%BE%B7%E5%9C%B0%E5%9B%BE/">高德地图</a>
+                    
+                      <a class="hover-with-bg" href="/tags/GeoHUB/">GeoHUB</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Loca-2-0/">Loca 2.0</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2020/06/30/Vue%E9%AB%98%E5%BE%B7%E5%9C%B0%E5%9B%BELoca%202.0%E9%A3%9E%E7%BA%BF%E5%8A%9F%E8%83%BD%E5%88%9D%E4%BD%93%E9%AA%8C/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Vue高德地图Loca 2.0飞线功能初体验</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2020/06/22/Vue%E8%A7%86%E9%A2%91%E6%92%AD%E6%94%BE%E8%BF%9B%E8%A1%8C+%E6%B0%B4%E5%8D%B0%E7%9A%84%E6%88%AA%E5%9B%BE/">
+                        <span class="hidden-mobile">Vue视频播放进行+水印的截图</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- LeanCloud 统计PV -->
+        <span id="leancloud-site-pv-container" style="display: none">
+            总访问量 
+            <span id="leancloud-site-pv"></span>
+             次
+          </span>
+      
+      
+        <!-- LeanCloud 统计UV -->
+        <span id="leancloud-site-uv-container" style="display: none">
+            总访客数 
+            <span id="leancloud-site-uv"></span>
+             人
+          </span>
+      
+
+    
+  </div>
+
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.3/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.1/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+  <script defer src="/js/leancloud.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>
