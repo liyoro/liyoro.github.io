@@ -1,0 +1,570 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="liyoro">
+  <meta name="keywords" content="前端,Vue,数据可视化">
+  
+    <meta name="description" content="vue项目中，对echarts地图封装，用于显示区域地图，实现自定义弹窗。弹窗样式自定义，可显示文字、图文、视频......">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue2项目中封装echarts地图比较优雅的方式">
+<meta property="og:url" content="https://liyoro.com/2022/03/08/vue2%E9%A1%B9%E7%9B%AE%E4%B8%AD%E5%B0%81%E8%A3%85echarts%E5%9C%B0%E5%9B%BE%E6%AF%94%E8%BE%83%E4%BC%98%E9%9B%85%E7%9A%84%E6%96%B9%E5%BC%8F%20/index.html">
+<meta property="og:site_name" content="大头">
+<meta property="og:description" content="vue项目中，对echarts地图封装，用于显示区域地图，实现自定义弹窗。弹窗样式自定义，可显示文字、图文、视频......">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://liyoro.com/img/Snip20220308_16_min.png">
+<meta property="article:published_time" content="2022-03-08T09:29:22.000Z">
+<meta property="article:modified_time" content="2022-03-09T08:14:24.182Z">
+<meta property="article:author" content="liyoro">
+<meta property="article:tag" content="前端">
+<meta property="article:tag" content="echarts">
+<meta property="article:tag" content="地图">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://liyoro.com/img/Snip20220308_16_min.png">
+  
+  
+  <title>vue2项目中封装echarts地图比较优雅的方式 - 大头</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+  
+<link rel="stylesheet" href="//at.alicdn.com/t/font_2758859_ounhe3bbaa.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"liyoro.com","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"04CJAnEXCVfX1bWMJMbPyEoA-gzGzoHsz","app_key":"SWmIhOX3zEAuJ2D9qLEJQugF","server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.1"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>liyoro</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="vue2项目中封装echarts地图比较优雅的方式">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2022-03-08 17:29" pubdate>
+        2022年3月8日 下午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      5.8k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      49 分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">vue2项目中封装echarts地图比较优雅的方式</h1>
+            
+            <div class="markdown-body">
+              <p>以前写过 <a target="_blank" rel="noopener" href="https://juejin.cn/post/6995518429952212999">vue项目中封装echarts的比较优雅的方式</a>，大屏可视化里面，除了数据图表很常用，显示省市地图区域也是很常用到的，这是姐妹篇。</p>
+<p>区域地图选区域时，需要弹窗展示数据，样式是各种各样的，各种排列的数据、图文混搭、视频……这里除了封装echarts区域地图模块，还介绍了下自定义弹窗的实现、自定义弹窗动态加载接口数据的方式</p>
+<h2 id="能学到的知识"><a href="#能学到的知识" class="headerlink" title="能学到的知识"></a>能学到的知识</h2><ul>
+<li>1、echarts地图模块封装，可复用</li>
+<li>2、echarts地图自定义弹窗（显示自定义样式、自定义数据、自定义图片），其它图表的自定义弹窗可参考。</li>
+<li> 3、echarts地图自定义弹窗动态展示接口数据</li>
+<li>4、基于姐姐篇实现的，这个地图模块也是自适应的</li>
+<li>5、基于<code>vue2</code> 、<code>vue cli3</code>、<code>echarts 5</code></li>
+</ul>
+<h3 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h3><p>先上个效果图吧，说明下实现的效果。</p>
+<ul>
+<li>1、以广州区域地图为例</li>
+<li>2、自定义弹窗，显示选中地区的名称、区号，弹窗加了个小图片</li>
+<li>3、基本上图片、视频什么的，都可以在自定义弹窗上显示，这里只展示下自定义弹窗加图片的方式，视频同理的，不介绍了，有兴趣自己随便试试就好</li>
+<li> 4、弹窗数据是从模拟接口取的</li>
+</ul>
+<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d6ae6a7f2d014e4296e1dcd9d017b6f6~tplv-k3u1fbpfcp-watermark.image" srcset="/img/loading.gif" lazyload alt="Snip20220308_16.png"></p>
+<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><h3 id="1、vue中echarts-5-x以下版本和5-x以上版本引入的区别"><a href="#1、vue中echarts-5-x以下版本和5-x以上版本引入的区别" class="headerlink" title="1、vue中echarts 5.x以下版本和5.x以上版本引入的区别"></a>1、vue中echarts <code>5.x</code>以下版本和<code>5.x</code>以上版本引入的区别</h3><h4 id="5-x以下版本"><a href="#5-x以下版本" class="headerlink" title="5.x以下版本"></a><code>5.x</code>以下版本</h4><figure class="highlight clean"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><pre><code class="hljs clean"><span class="hljs-keyword">import</span> echarts <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;echarts&#x27;</span><br></code></pre></td></tr></table></figure>
+
+<h4 id="5-x以上版本"><a href="#5-x以上版本" class="headerlink" title="5.x以上版本"></a><code>5.x</code>以上版本</h4><figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs clean"><span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> echarts <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;echarts&#x27;</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="2、记得在vue-config-js中开启运行时编译功能"><a href="#2、记得在vue-config-js中开启运行时编译功能" class="headerlink" title="2、记得在vue.config.js中开启运行时编译功能"></a>2、记得在<code>vue.config.js</code>中开启运行时编译功能</h3><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">runtimeCompiler:</span> <span class="hljs-literal">true</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><h3 id="数据准备"><a href="#数据准备" class="headerlink" title="数据准备"></a>数据准备</h3><figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs 1c"><span class="hljs-string">|-- public</span><br>	<span class="hljs-string">|-- data</span><br>		<span class="hljs-string">|-- 4401.json</span><br>		<span class="hljs-string">|-- mapdata.json</span><br>	<span class="hljs-string">|-- images</span><br>		<span class="hljs-string">|-- map-ic.png</span><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>1、<code>4401.json</code>是广州区域的<code>geojson</code>数据，用来给<code>echarts</code>显示广州的区域地图</li>
+<li>2、<code>mapdata.json</code>是模拟接口请求的假数据，自己随便自定义了，在获取数据后，看情况处理下传到封装好的echarts地图模块就行，这里模拟接口请求的知识可参考这里： <a target="_blank" rel="noopener" href="https://juejin.cn/post/6995147964427534373/">vue本地模拟服务器请求mock数据</a></li>
+<li>3、<code>map-ic.png</code>地图自定义弹窗用到的图片</li>
+</ul>
+<h3 id="echarts地图模块封装"><a href="#echarts地图模块封装" class="headerlink" title="echarts地图模块封装"></a>echarts地图模块封装</h3><figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs 1c"><span class="hljs-string">|-- src</span><br>    <span class="hljs-string">|-- components</span><br>        <span class="hljs-string">|-- chart</span><br>            <span class="hljs-string">|-- options    // 存放各种图表的option</span><br>                <span class="hljs-string">|-- map    // 地图option</span><br>                    <span class="hljs-string">|-- index.js</span><br></code></pre></td></tr></table></figure>
+
+<p>封装的地图模块，具体代码如下：</p>
+<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br></pre></td><td class="code"><pre><code class="hljs coffeescript"><span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> echarts <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;echarts&#x27;</span><br><br>const getSimpleMap = <span class="hljs-function"><span class="hljs-params">(jsonMap, data, config)</span> =&gt;</span> &#123;<br>  <span class="hljs-keyword">if</span> (!echarts.getMap(jsonMap.mark)) &#123;<br>    echarts.registerMap(jsonMap.mark, jsonMap.json)<br>  &#125;<br>  const defaultConfig = &#123;<br>    tooltip: &#123;<br>      <span class="hljs-regexp">//</span> 窗口外框<br>      trigger: <span class="hljs-string">&#x27;item&#x27;</span>,<br>      padding: <span class="hljs-number">0</span>,<br>      borderWidth: <span class="hljs-number">0</span>,<br>      borderColor: <span class="hljs-string">&#x27;#FFFFFF&#x27;</span>,<br>      backgroundColor: <span class="hljs-string">&#x27;#FFFFFF&#x27;</span>,<br>      formatter: <span class="hljs-function"><span class="hljs-params">(params)</span> =&gt;</span> &#123;<br>        const &#123; data &#125; = params<br>        const str = `<span class="language-javascript">&lt;div style=<span class="hljs-string">&quot;width:300px;height: 98px;box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.8);</span></span><br><span class="hljs-string"><span class="language-javascript">                    color: #fff;text-align:left;border-radius: 6px;&quot;</span>&gt;</span><br><span class="language-javascript">                    <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;background-color: rgba(102, 182, 255, 1);height: 44px;line-height: 44px;font-size:14px;font-weight:400;border-top-left-radius: 6px;border-top-right-radius: 6px;display: flex;align-items: center;&quot;</span>&gt;</span></span></span><br><span class="language-xml"><span class="language-javascript">                        <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;width: 13px;height:16px;margin-left: 24px;margin-right: 3px;&quot;</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;images/map-ic.png&quot;</span>&gt;</span>$&#123;data.name&#125;</span></span><br><span class="language-xml"><span class="language-javascript">                    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span></span><br><span class="language-xml"><span class="language-javascript">                    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;width: 100%;height:54px;display: flex;flex-wrap: wrap;&quot;</span>&gt;</span></span></span><br><span class="language-xml"><span class="language-javascript">                        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;display: flex;justify-content: space-between;width: 100%;padding-left:15px;padding-right: 15px;&quot;</span>&gt;</span></span></span><br><span class="language-xml"><span class="language-javascript">                            <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;display:flex;align-items:center;width:132px;&quot;</span>&gt;</span></span></span><br><span class="language-xml"><span class="language-javascript">                                <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;font-size: 12px;color: #555555;margin-right:10px;&quot;</span>&gt;</span>区号：<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span></span><br><span class="language-xml"><span class="language-javascript">                                <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;font-size: 14px;color: #333333;&quot;</span>&gt;</span>$&#123;data.hoverObj == null ? &#x27;&#x27; : data.hoverObj.adcode&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span></span><br><span class="language-xml"><span class="language-javascript">                            <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span></span><br><span class="language-xml"><span class="language-javascript">                        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span></span><br><span class="language-xml"><span class="language-javascript">                    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span></span><br><span class="language-xml"><span class="language-javascript">                <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span></span>`<br>        <span class="hljs-keyword">return</span> str<br>      &#125;<br>    &#125;,<br>    geo: &#123;<br>      map: jsonMap.mark,<br>      type: <span class="hljs-string">&#x27;map&#x27;</span>,<br>      layoutCenter: [<span class="hljs-string">&#x27;50%&#x27;</span>, <span class="hljs-string">&#x27;50%&#x27;</span>],<br>      layoutSize: <span class="hljs-string">&#x27;150%&#x27;</span>,<br>      zoom: <span class="hljs-number">0.65</span>,<br>      roam: <span class="hljs-literal">false</span>,<br>      itemStyle: &#123;<br>        normal: &#123;<br>          areaColor: <span class="hljs-string">&#x27;rgba(201, 229, 255, 1)&#x27;</span>,<br>          shadowColor: <span class="hljs-string">&#x27;rgba(142, 201, 255, 1)&#x27;</span>,<br>          shadowOffsetX: <span class="hljs-number">-5</span>,<br>          shadowOffsetY: <span class="hljs-number">12</span><br>        &#125;<br>      &#125;<br>    &#125;,<br>    series: [<br>      &#123;<br>        type: <span class="hljs-string">&#x27;map&#x27;</span>,<br>        map: jsonMap.mark, <span class="hljs-regexp">//</span> 自定义扩展图表类型<br>        zoom: <span class="hljs-number">0.65</span>, <span class="hljs-regexp">//</span> 缩放<br>        animationDuration: <span class="hljs-number">1200</span>,<br>        itemStyle: &#123;<br>          <span class="hljs-regexp">//</span> 地图样式<br>          normal: &#123;<br>            borderColor: <span class="hljs-string">&#x27;#FFFFFF&#x27;</span>,<br>            borderWidth: <span class="hljs-number">3</span>,<br>            areaColor: <span class="hljs-string">&#x27;rgba(201, 229, 255, 1)&#x27;</span><br>          &#125;<br>        &#125;,<br>        label: &#123;<br>          show: <span class="hljs-literal">true</span>,<br>          color: <span class="hljs-string">&#x27;#666666&#x27;</span>,<br>          fontSize: <span class="hljs-number">12</span>,<br>          fontWeight: <span class="hljs-number">400</span><br>        &#125;,<br>        emphasis: &#123;<br>          <span class="hljs-regexp">//</span> 鼠标移入动态的时候显示的默认样式<br>          label: &#123;<br>            show: <span class="hljs-literal">true</span>,<br>            color: <span class="hljs-string">&#x27;#FFFFFF&#x27;</span>,<br>            fontSize: <span class="hljs-number">15</span>,<br>            fontWeight: <span class="hljs-number">600</span><br>          &#125;,<br>          itemStyle: &#123;<br>            areaColor: <span class="hljs-string">&#x27;rgba(102, 182, 255, 1)&#x27;</span>,<br>            borderColor: <span class="hljs-string">&#x27;#FFFFFF&#x27;</span>,<br>            borderWidth: <span class="hljs-number">2</span><br>          &#125;<br>        &#125;,<br>        layoutCenter: [<span class="hljs-string">&#x27;50%&#x27;</span>, <span class="hljs-string">&#x27;50%&#x27;</span>],<br>        layoutSize: <span class="hljs-string">&#x27;150%&#x27;</span>,<br>        data: data<br>      &#125;<br>    ]<br>  &#125;<br>  const opt = <span class="hljs-built_in">Object</span>.assign(&#123;&#125;, defaultConfig, config)<br>  const &#123; legend, tooltip, series, geo, grid &#125; = opt<br>  const chartOpt = &#123;<br>    grid,<br>    legend,<br>    tooltip,<br>    geo,<br>    series<br>  &#125;<br>  <span class="hljs-keyword">return</span> chartOpt<br>&#125;<br><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> &#123;<br>  getSimpleMap<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>自定义弹窗主要是在<code>tooltip</code>的<code>formatter</code>里面实现，自定义好<code>html</code>弹窗，把<code>params</code>里要显示的数据显示到对应的地方就OK了。</p>
+<p>个人喜欢直接纯<code>html</code>实现好设计给的弹窗样式，然后直接复制到<code>formatter</code>里面。每次遇到不同的设计，就修改下<code>formatter</code>里面的<code>html</code>和匹配下要显示的数据就行了。这里可以进一步封装的，有兴趣的可以试试。</p>
+<h3 id="页面调用"><a href="#页面调用" class="headerlink" title="页面调用"></a>页面调用</h3><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs elixir">&lt;chart-view<br>      class=<span class="hljs-string">&quot;map-view&quot;</span><br>      <span class="hljs-symbol">:chart-option=<span class="hljs-string">&quot;mapOpt&quot;</span></span><br>      height=<span class="hljs-string">&quot;100%&quot;</span><br>      <span class="hljs-variable">@click</span>=<span class="hljs-string">&quot;handleMapClick&quot;</span> /&gt;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>1、<code> :chart-option=&quot;mapOpt&quot;</code>这个是给封装的<code>echarts</code>地图模块的传参，接口数据要经过处理，具体看下一节</li>
+<li>2、<code>@click=&quot;handleMapClick&quot;</code>这里是点击地图时，对应区域的数据，用于有下一步的操作，例如地图下钻</li>
+</ul>
+<h3 id="接口数据处理"><a href="#接口数据处理" class="headerlink" title="接口数据处理"></a>接口数据处理</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-title function_">initMap</span>(<span class="hljs-params">url</span>) &#123;<br>    <span class="hljs-title function_">mapRequest</span>(url).<span class="hljs-title function_">then</span>(<span class="hljs-function">(<span class="hljs-params">res</span>) =&gt;</span> &#123;<br>        <span class="hljs-keyword">const</span> mapData = res.<span class="hljs-property">data</span><br>        <span class="hljs-keyword">const</span> jsonMap = &#123; <span class="hljs-attr">mark</span>: <span class="hljs-variable language_">this</span>.<span class="hljs-property">mapName</span>, <span class="hljs-attr">json</span>: mapData &#125;<br><br>        <span class="hljs-keyword">const</span> data = mapData.<span class="hljs-property">features</span>.<span class="hljs-title function_">map</span>(<span class="hljs-function">(<span class="hljs-params">item</span>) =&gt;</span> &#123;<br>          <span class="hljs-keyword">const</span> &#123; name, adcode &#125; = item.<span class="hljs-property">properties</span><br><br>          <span class="hljs-keyword">let</span> hoverObj = &#123;&#125;<br><br>          <span class="hljs-keyword">const</span> objIndex = <span class="hljs-title function_">findElem</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">mapPopData</span>, <span class="hljs-string">&#x27;adcode&#x27;</span>, adcode)<br>          <span class="hljs-keyword">if</span> (objIndex !== -<span class="hljs-number">1</span>) &#123;<br>            hoverObj = <span class="hljs-variable language_">this</span>.<span class="hljs-property">mapPopData</span>[objIndex]<br>          &#125; <span class="hljs-keyword">else</span> &#123;<br>            hoverObj = <span class="hljs-literal">null</span><br>          &#125;<br>          <span class="hljs-keyword">return</span> &#123;<br>            name,<br>            <span class="hljs-attr">hoverObj</span>: hoverObj<br>          &#125;<br>        &#125;)<br>        <span class="hljs-variable language_">this</span>.<span class="hljs-property">mapOpt</span> = <span class="hljs-variable language_">this</span>.<span class="hljs-property">$eChartFn</span>.<span class="hljs-title function_">getSimpleMap</span>(jsonMap, data)<br>    &#125;).<span class="hljs-title function_">catch</span>(<span class="hljs-function">(<span class="hljs-params">err</span>) =&gt;</span> &#123;<br>        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(err, <span class="hljs-string">&#x27;加载地图失败&#x27;</span>)<br>    &#125;)<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>这里对地图<code>geojson</code>数据和接口返回数据进行匹配处理，达到弹窗数据是对应地区数据的效果。</p>
+<p>地图<code>geojson</code>数据是必有<code>adcode</code>字段的，所以接口数据<code>mapPopData</code>最好也是加上此字段，用来匹配。<br>上面代码里的<code>hoverObj</code>是匹配好的每个区域的数据，最终形成数组<code>data</code>，通过以下代码给封装的<code>echarts</code>模块传参</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs kotlin"><span class="hljs-keyword">this</span>.mapOpt = <span class="hljs-keyword">this</span>.$eChartFn.getSimpleMap(jsonMap, <span class="hljs-keyword">data</span>)<br></code></pre></td></tr></table></figure>
+
+<p>具体代码可以参考<code>echartMapTest</code>文件夹里面的<code>index.js</code>文件</p>
+<h2 id="代码总览"><a href="#代码总览" class="headerlink" title="代码总览"></a>代码总览</h2><p>涉及的文件如下（具体参考<code>代码</code>）：</p>
+<figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs 1c"><span class="hljs-string">|-- public</span><br>	<span class="hljs-string">|-- data</span><br>		<span class="hljs-string">|-- 4401.json</span><br>		<span class="hljs-string">|-- mapdata.json</span><br>	<span class="hljs-string">|-- images</span><br>		<span class="hljs-string">|-- map-ic.png</span><br><span class="hljs-string">|-- src</span><br>	<span class="hljs-string">|-- api</span><br>		<span class="hljs-string">|-- map.js    // 获取地图geojson数据、地图弹窗接口模拟数据</span><br>    <span class="hljs-string">|-- components</span><br>        <span class="hljs-string">|-- chart</span><br>            <span class="hljs-string">|-- index.vue    // 图表单文件组件，供界面调用</span><br>            <span class="hljs-string">|-- index.js    // 实现自动化导入options里的图表option</span><br>            <span class="hljs-string">|-- options    // 存放各种图表的option</span><br>                <span class="hljs-string">|-- map    // 地图option</span><br>                    <span class="hljs-string">|-- index.js</span><br>    <span class="hljs-string">|-- views</span><br>        <span class="hljs-string">|-- echartMapTest    // 实例所在</span><br>            <span class="hljs-string">|-- index.vue</span><br>            <span class="hljs-string">|-- index.scss</span><br>            <span class="hljs-string">|-- index.js</span><br>	<span class="hljs-string">|-- utils</span><br>		<span class="hljs-string">|---utils.js</span><br><span class="hljs-string">|-- main.js    // 全局引入echarts图表</span><br></code></pre></td></tr></table></figure>
+
+
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><p>按<code>代码总览</code>的目录去<a target="_blank" rel="noopener" href="https://github.com/liyoro/vue-skill">代码</a>里找着看就行了。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>以上，就是对<code>echarts</code>地图模块的封装，还有自定义弹窗的实现。使用和复用都比较方便了。</p>
+<p>最近才发现 <a target="_blank" rel="noopener" href="https://www.makeapie.com/explore.html">www.makeapie.com</a> 停服了，挺好用的东西来的，感谢这么多年的奉献。</p>
+<p>有需求的可转移到 <a target="_blank" rel="noopener" href="http://ppchart.com/#/">PPChart</a>，算是一个替代品了</p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
+<li>1、<a target="_blank" rel="noopener" href="http://datav.aliyun.com/portal/school/atlas/area_selector">地图选择器</a></li>
+<li>2、<a target="_blank" rel="noopener" href="https://echarts.apache.org/zh/index.html">Echarts</a></li>
+<li>2、<a target="_blank" rel="noopener" href="https://juejin.cn/post/6995147964427534373/">vue本地模拟服务器请求mock数据</a></li>
+<li>3、<a target="_blank" rel="noopener" href="https://juejin.cn/post/6995518429952212999">vue项目中封装echarts的比较优雅的方式</a></li>
+<li>4、<a target="_blank" rel="noopener" href="https://juejin.cn/post/7072533871983591461">简单技巧分离vue文件的css、js代码，方便阅读开发</a></li>
+</ul>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E5%89%8D%E7%AB%AF/">前端</a>
+                    
+                      <a class="hover-with-bg" href="/tags/echarts/">echarts</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E5%9C%B0%E5%9B%BE/">地图</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/01/22/%E8%AE%B0%E4%B8%80%E6%AC%A1%E6%B5%8F%E8%A7%88%E5%99%A8SameSite%E7%AD%96%E7%95%A5%E6%9B%B4%E6%96%B0%EF%BC%8C%E5%AF%BC%E8%87%B4%E6%8E%A5%E5%8F%A3%20Failed%20to%20load%20response%20data%20%E7%9A%84%E8%A7%A3%E5%86%B3%E8%BF%87%E7%A8%8B/">
+                        <span class="hidden-mobile">记一次浏览器SameSite策略更新，导致接口 Failed to load response data 的解决过程</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- LeanCloud 统计PV -->
+        <span id="leancloud-site-pv-container" style="display: none">
+            总访问量 
+            <span id="leancloud-site-pv"></span>
+             次
+          </span>
+      
+      
+        <!-- LeanCloud 统计UV -->
+        <span id="leancloud-site-uv-container" style="display: none">
+            总访客数 
+            <span id="leancloud-site-uv"></span>
+             人
+          </span>
+      
+
+    
+  </div>
+
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+  <script defer src="/js/leancloud.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

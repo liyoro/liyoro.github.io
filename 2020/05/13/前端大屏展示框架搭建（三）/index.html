@@ -1,7 +1,7 @@
 
 
 <!DOCTYPE html>
-<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+<html lang="zh-CN" data-default-color-scheme=auto>
 
 
 
@@ -9,35 +9,49 @@
   <meta charset="UTF-8">
   <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
   <link rel="icon" href="/img/favicon.png">
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="description" content="大屏全屏页面等比例缩放的实现">
   <meta name="author" content="liyoro">
   <meta name="keywords" content="前端,Vue,数据可视化">
   
+    <meta name="description" content="大屏全屏页面等比例缩放的实现">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端大屏展示框架搭建（三）">
+<meta property="og:url" content="https://liyoro.com/2020/05/13/%E5%89%8D%E7%AB%AF%E5%A4%A7%E5%B1%8F%E5%B1%95%E7%A4%BA%E6%A1%86%E6%9E%B6%E6%90%AD%E5%BB%BA%EF%BC%88%E4%B8%89%EF%BC%89/index.html">
+<meta property="og:site_name" content="大头">
+<meta property="og:description" content="大屏全屏页面等比例缩放的实现">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-05-13T13:02:19.000Z">
+<meta property="article:modified_time" content="2022-03-09T07:43:13.467Z">
+<meta property="article:author" content="liyoro">
+<meta property="article:tag" content="VSCode">
+<meta property="article:tag" content="Vue">
+<meta property="article:tag" content="Element">
+<meta property="article:tag" content="大屏">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
   <title>前端大屏展示框架搭建（三） - 大头</title>
 
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
 
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
-  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
 
   
     
     
       
-      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.7.2/styles/github-gist.min.css" />
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
     
   
 
   
-    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
   
-
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
@@ -60,19 +74,20 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"liyoro.com","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"04CJAnEXCVfX1bWMJMbPyEoA-gzGzoHsz","app_key":"SWmIhOX3zEAuJ2D9qLEJQugF","server_url":null}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"liyoro.com","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"04CJAnEXCVfX1bWMJMbPyEoA-gzGzoHsz","app_key":"SWmIhOX3zEAuJ2D9qLEJQugF","server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.4.0"></head>
+<meta name="generator" content="Hexo 5.4.1"></head>
 
 
 <body>
   <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand"
-       href="/">&nbsp;<strong>liyoro</strong>&nbsp;</a>
+    <a class="navbar-brand" href="/">
+      <strong>liyoro</strong>
+    </a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent"
@@ -158,13 +173,14 @@
         
         
           <li class="nav-item" id="search-btn">
-            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
-                class="iconfont icon-search"></i>&nbsp;</a>
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
           </li>
         
         
           <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" target="_self">&nbsp;<i
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
                 class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
           </li>
         
@@ -198,21 +214,18 @@
 
 <div class="mt-1">
   
-    
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      376 字
+      1.5k 字
     </span>
   
 
   
-    
     <span class="post-meta mr-2">
       <i class="iconfont icon-clock-fill"></i>
       
       
-      5
-       分钟
+      13 分钟
     </span>
   
 
@@ -250,11 +263,11 @@
 <p>layout.vue</p>
 </blockquote>
 <p>主要是在 <font color=#508FF2>app-wrapper</font> 所在div进行scale。</p>
-<figure class="highlight dust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs dust"><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span></span><br><span class="xml">  <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span></span><br><span class="xml">    <span class="hljs-tag">&lt;<span class="hljs-name">div</span></span></span><br><span class="hljs-tag"><span class="xml">      <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;app-wrapper&quot;</span></span></span><br><span class="hljs-tag"><span class="xml">      <span class="hljs-attr">:style</span>=<span class="hljs-string">&quot;</span></span></span><span class="hljs-template-variable">&#123;</span><br><span class="hljs-template-variable">        transformOrigin: &#x27;center top&#x27;,</span><br><span class="hljs-template-variable">        transform: `scale($&#123;scalseNum&#125;</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">,$</span></span></span><span class="hljs-template-variable">&#123;scalseNum&#125;</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">)`,</span></span></span><br><span class="hljs-string"><span class="hljs-tag"><span class="xml">        &#x27;-webkit-transform&#x27;: `scale($</span></span></span><span class="hljs-template-variable">&#123;scalseNum&#125;</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">,$</span></span></span><span class="hljs-template-variable">&#123;scalseNum&#125;</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">)`,</span></span></span><br><span class="hljs-string"><span class="hljs-tag"><span class="xml">        &#x27;-moz-transform&#x27;: `scale($</span></span></span><span class="hljs-template-variable">&#123;scalseNum&#125;</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">,$</span></span></span><span class="hljs-template-variable">&#123;scalseNum&#125;</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">)`,</span></span></span><br><span class="hljs-string"><span class="hljs-tag"><span class="xml">        &#x27;-o-transform&#x27;: `scale($</span></span></span><span class="hljs-template-variable">&#123;scalseNum&#125;</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">,$</span></span></span><span class="hljs-template-variable">&#123;scalseNum&#125;</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">)`,</span></span></span><br><span class="hljs-string"><span class="hljs-tag"><span class="xml">        &#x27;-ms-transform&#x27;: `scale($</span></span></span><span class="hljs-template-variable">&#123;scalseNum&#125;</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">,$</span></span></span><span class="hljs-template-variable">&#123;scalseNum&#125;</span><span class="xml"><span class="hljs-tag"><span class="hljs-string">)`,</span></span></span><br><span class="hljs-string"><span class="hljs-tag"><span class="xml">      &#125;&quot;</span></span></span><br><span class="hljs-tag"><span class="xml">    &gt;</span></span><br><span class="xml">      <span class="hljs-comment">&lt;!-- 头部栏 --&gt;</span></span><br><span class="xml">      <span class="hljs-tag">&lt;<span class="hljs-name">app-head</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">app-head</span>&gt;</span></span><br><span class="xml">      <span class="hljs-comment">&lt;!-- 内容栏 --&gt;</span></span><br><span class="xml">      <span class="hljs-tag">&lt;<span class="hljs-name">app-main</span> /&gt;</span></span><br><span class="xml">    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br><span class="xml">  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span></span><br></code></pre></td></tr></table></figure>
+<figure class="highlight dust"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></div></td><td class="code"><pre><code class="hljs dust"><span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span></span><br><span class="language-xml">  <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span></span><br><span class="language-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">div</span></span></span><br><span class="hljs-tag"><span class="language-xml">      <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;app-wrapper&quot;</span></span></span><br><span class="hljs-tag"><span class="language-xml">      <span class="hljs-attr">:style</span>=<span class="hljs-string">&quot;</span></span></span><span class="hljs-template-variable">&#123;</span><br><span class="hljs-template-variable">        transformOrigin: &#x27;center top&#x27;,</span><br><span class="hljs-template-variable">        transform: `scale($&#123;scalseNum&#125;</span><span class="language-xml"><span class="hljs-tag"><span class="hljs-string">,$</span></span></span><span class="hljs-template-variable">&#123;scalseNum&#125;</span><span class="language-xml"><span class="hljs-tag"><span class="hljs-string">)`,</span></span></span><br><span class="hljs-string"><span class="hljs-tag"><span class="language-xml">        &#x27;-webkit-transform&#x27;: `scale($</span></span></span><span class="hljs-template-variable">&#123;scalseNum&#125;</span><span class="language-xml"><span class="hljs-tag"><span class="hljs-string">,$</span></span></span><span class="hljs-template-variable">&#123;scalseNum&#125;</span><span class="language-xml"><span class="hljs-tag"><span class="hljs-string">)`,</span></span></span><br><span class="hljs-string"><span class="hljs-tag"><span class="language-xml">        &#x27;-moz-transform&#x27;: `scale($</span></span></span><span class="hljs-template-variable">&#123;scalseNum&#125;</span><span class="language-xml"><span class="hljs-tag"><span class="hljs-string">,$</span></span></span><span class="hljs-template-variable">&#123;scalseNum&#125;</span><span class="language-xml"><span class="hljs-tag"><span class="hljs-string">)`,</span></span></span><br><span class="hljs-string"><span class="hljs-tag"><span class="language-xml">        &#x27;-o-transform&#x27;: `scale($</span></span></span><span class="hljs-template-variable">&#123;scalseNum&#125;</span><span class="language-xml"><span class="hljs-tag"><span class="hljs-string">,$</span></span></span><span class="hljs-template-variable">&#123;scalseNum&#125;</span><span class="language-xml"><span class="hljs-tag"><span class="hljs-string">)`,</span></span></span><br><span class="hljs-string"><span class="hljs-tag"><span class="language-xml">        &#x27;-ms-transform&#x27;: `scale($</span></span></span><span class="hljs-template-variable">&#123;scalseNum&#125;</span><span class="language-xml"><span class="hljs-tag"><span class="hljs-string">,$</span></span></span><span class="hljs-template-variable">&#123;scalseNum&#125;</span><span class="language-xml"><span class="hljs-tag"><span class="hljs-string">)`,</span></span></span><br><span class="hljs-string"><span class="hljs-tag"><span class="language-xml">      &#125;&quot;</span></span></span><br><span class="hljs-tag"><span class="language-xml">    &gt;</span></span><br><span class="language-xml">      <span class="hljs-comment">&lt;!-- 头部栏 --&gt;</span></span><br><span class="language-xml">      <span class="hljs-tag">&lt;<span class="hljs-name">app-head</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">app-head</span>&gt;</span></span><br><span class="language-xml">      <span class="hljs-comment">&lt;!-- 内容栏 --&gt;</span></span><br><span class="language-xml">      <span class="hljs-tag">&lt;<span class="hljs-name">app-main</span> /&gt;</span></span><br><span class="language-xml">    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br><span class="language-xml">  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br><span class="language-xml"><span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span></span><br></code></pre></td></tr></table></figure>
 
 <p>scale的比例按照实际屏幕宽与1366的比例计算，如果设计图是按照别的尺寸做的，例如 <font color=#259F3B>1920x1080</font>、<font color=#259F3B>3840*2160（4K）屏</font>等等，在下面代码的 <font color=#DC544B>resize_window</font> 方法设置对应宽度就行。</p>
 <p>代码如下：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript"></span><br><span class="javascript"><span class="hljs-keyword">import</span> &#123; AppMain, AppHead &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./components&#x27;</span></span><br><span class="javascript"></span><br><span class="javascript"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> &#123;</span><br><span class="javascript">  <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;Layout&#x27;</span>,</span><br><span class="javascript">  <span class="hljs-attr">components</span>: &#123;</span><br><span class="javascript">    AppMain,</span><br><span class="javascript">    AppHead,</span><br><span class="javascript">  &#125;,</span><br><span class="javascript">  <span class="hljs-function"><span class="hljs-title">data</span>(<span class="hljs-params"></span>)</span> &#123;</span><br><span class="javascript">    <span class="hljs-keyword">return</span> &#123;</span><br><span class="javascript">      <span class="hljs-attr">scalseNum</span>: <span class="hljs-number">1</span>, <span class="hljs-comment">//缩放比例</span></span><br><span class="javascript">    &#125;</span><br><span class="javascript">  &#125;,</span><br><span class="javascript">  <span class="hljs-attr">computed</span>: &#123;&#125;,</span><br><span class="javascript">  <span class="hljs-function"><span class="hljs-title">mounted</span>(<span class="hljs-params"></span>)</span> &#123;</span><br><span class="javascript">    <span class="hljs-comment">//计算缩放比例</span></span><br><span class="javascript">    <span class="hljs-built_in">this</span>.resize_window()</span><br><span class="javascript">    <span class="hljs-comment">// 监听浏览器缩放，实时改变大屏宽高</span></span><br><span class="javascript">    <span class="hljs-built_in">window</span>.addEventListener(<span class="hljs-string">&#x27;resize&#x27;</span>, <span class="hljs-function">() =&gt;</span> &#123;</span><br><span class="javascript">      <span class="hljs-built_in">this</span>.resize_window()</span><br><span class="javascript">    &#125;)</span><br><span class="javascript">  &#125;,</span><br><span class="javascript">  <span class="hljs-attr">methods</span>: &#123;</span><br><span class="javascript">    <span class="hljs-comment">//计算缩放比例</span></span><br><span class="javascript">    <span class="hljs-function"><span class="hljs-title">resize_window</span>(<span class="hljs-params"></span>)</span> &#123;</span><br><span class="javascript">      <span class="hljs-keyword">let</span> w_width = <span class="hljs-built_in">Number</span>(<span class="hljs-built_in">document</span>.documentElement.clientWidth / <span class="hljs-number">1366</span>)</span><br><span class="javascript">      <span class="hljs-built_in">this</span>.scalseNum = w_width</span><br><span class="javascript">    &#125;,</span><br><span class="javascript">  &#125;,</span><br><span class="javascript">&#125;</span><br><span class="javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript"></span><br><span class="language-javascript"><span class="hljs-keyword">import</span> &#123; <span class="hljs-title class_">AppMain</span>, <span class="hljs-title class_">AppHead</span> &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./components&#x27;</span></span><br><span class="language-javascript"></span><br><span class="language-javascript"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> &#123;</span><br><span class="language-javascript">  <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;Layout&#x27;</span>,</span><br><span class="language-javascript">  <span class="hljs-attr">components</span>: &#123;</span><br><span class="language-javascript">    <span class="hljs-title class_">AppMain</span>,</span><br><span class="language-javascript">    <span class="hljs-title class_">AppHead</span>,</span><br><span class="language-javascript">  &#125;,</span><br><span class="language-javascript">  <span class="hljs-title function_">data</span>(<span class="hljs-params"></span>) &#123;</span><br><span class="language-javascript">    <span class="hljs-keyword">return</span> &#123;</span><br><span class="language-javascript">      <span class="hljs-attr">scalseNum</span>: <span class="hljs-number">1</span>, <span class="hljs-comment">//缩放比例</span></span><br><span class="language-javascript">    &#125;</span><br><span class="language-javascript">  &#125;,</span><br><span class="language-javascript">  <span class="hljs-attr">computed</span>: &#123;&#125;,</span><br><span class="language-javascript">  <span class="hljs-title function_">mounted</span>(<span class="hljs-params"></span>) &#123;</span><br><span class="language-javascript">    <span class="hljs-comment">//计算缩放比例</span></span><br><span class="language-javascript">    <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">resize_window</span>()</span><br><span class="language-javascript">    <span class="hljs-comment">// 监听浏览器缩放，实时改变大屏宽高</span></span><br><span class="language-javascript">    <span class="hljs-variable language_">window</span>.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">&#x27;resize&#x27;</span>, <span class="hljs-function">() =&gt;</span> &#123;</span><br><span class="language-javascript">      <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">resize_window</span>()</span><br><span class="language-javascript">    &#125;)</span><br><span class="language-javascript">  &#125;,</span><br><span class="language-javascript">  <span class="hljs-attr">methods</span>: &#123;</span><br><span class="language-javascript">    <span class="hljs-comment">//计算缩放比例</span></span><br><span class="language-javascript">    <span class="hljs-title function_">resize_window</span>(<span class="hljs-params"></span>) &#123;</span><br><span class="language-javascript">      <span class="hljs-keyword">let</span> w_width = <span class="hljs-title class_">Number</span>(<span class="hljs-variable language_">document</span>.<span class="hljs-property">documentElement</span>.<span class="hljs-property">clientWidth</span> / <span class="hljs-number">1366</span>)</span><br><span class="language-javascript">      <span class="hljs-variable language_">this</span>.<span class="hljs-property">scalseNum</span> = w_width</span><br><span class="language-javascript">    &#125;,</span><br><span class="language-javascript">  &#125;,</span><br><span class="language-javascript">&#125;</span><br><span class="language-javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br></code></pre></td></tr></table></figure>
 
 
 <h2 id="工程代码"><a href="#工程代码" class="headerlink" title="工程代码"></a>工程代码</h2><p>整个项目的代码在下面地址，参考commit就懂过程了</p>
@@ -276,11 +289,11 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
+                      <a class="hover-with-bg" href="/tags/VSCode/">VSCode</a>
+                    
                       <a class="hover-with-bg" href="/tags/Vue/">Vue</a>
                     
                       <a class="hover-with-bg" href="/tags/Element/">Element</a>
-                    
-                      <a class="hover-with-bg" href="/tags/VSCode/">VSCode</a>
                     
                       <a class="hover-with-bg" href="/tags/%E5%A4%A7%E5%B1%8F/">大屏</a>
                     
@@ -343,7 +356,7 @@
     
 
     
-      <a id="scroll-top-button" href="#" role="button">
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
         <i class="iconfont icon-arrowup" aria-hidden="true"></i>
       </a>
     
@@ -414,8 +427,8 @@
 
   <!-- SCRIPTS -->
   
-  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
 
   <script>
     NProgress.configure({"showSpinner":false,"trickleSpeed":100})
@@ -426,12 +439,16 @@
   </script>
 
 
-<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
-<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
 <script  src="/js/events.js" ></script>
 <script  src="/js/plugins.js" ></script>
 
 <!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
 
 
   
@@ -444,23 +461,18 @@
 
 
 
-  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.3/dist/tocbot.min.js" ></script>
-
-
-
-  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
-
-
-
-  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.1/anchor.min.js" ></script>
-
-
-
-  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
-
-
-
-  <script  src="/js/local-search.js" ></script>
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
 
 
 
@@ -469,13 +481,13 @@
 
 
 
-  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12/lib/typed.min.js" ></script>
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
   <script>
     (function (window, document) {
       var typing = Fluid.plugins.typing;
       var title = document.getElementById('subtitle').title;
       
-      typing(title)
+        typing(title);
       
     })(window, document);
   </script>

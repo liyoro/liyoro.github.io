@@ -1,7 +1,7 @@
 
 
 <!DOCTYPE html>
-<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+<html lang="zh-CN" data-default-color-scheme=auto>
 
 
 
@@ -9,18 +9,26 @@
   <meta charset="UTF-8">
   <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
   <link rel="icon" href="/img/favicon.png">
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="description" content="">
   <meta name="author" content="liyoro">
   <meta name="keywords" content="前端,Vue,数据可视化">
   
+    <meta property="og:type" content="website">
+<meta property="og:title" content="大头">
+<meta property="og:url" content="https://liyoro.com/index.html">
+<meta property="og:site_name" content="大头">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="liyoro">
+<meta property="article:tag" content="前端,Vue,数据可视化">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
   <title>大头</title>
 
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
 
 
@@ -44,19 +52,20 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"liyoro.com","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"04CJAnEXCVfX1bWMJMbPyEoA-gzGzoHsz","app_key":"SWmIhOX3zEAuJ2D9qLEJQugF","server_url":null}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"liyoro.com","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"04CJAnEXCVfX1bWMJMbPyEoA-gzGzoHsz","app_key":"SWmIhOX3zEAuJ2D9qLEJQugF","server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.4.0"></head>
+<meta name="generator" content="Hexo 5.4.1"></head>
 
 
 <body>
   <header style="height: 100vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand"
-       href="/">&nbsp;<strong>liyoro</strong>&nbsp;</a>
+    <a class="navbar-brand" href="/">
+      <strong>liyoro</strong>
+    </a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent"
@@ -142,13 +151,14 @@
         
         
           <li class="nav-item" id="search-btn">
-            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
-                class="iconfont icon-search"></i>&nbsp;</a>
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
           </li>
         
         
           <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" target="_self">&nbsp;<i
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
                 class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
           </li>
         
@@ -161,7 +171,7 @@
          style="background: url('/img/default.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
-        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0)">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
             <span class="h2" id="subtitle" title="稍微记录下......">
               
@@ -195,6 +205,244 @@
   <div class="row mx-auto index-card">
     
     
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2022/03/08/vue2%E9%A1%B9%E7%9B%AE%E4%B8%AD%E5%B0%81%E8%A3%85echarts%E5%9C%B0%E5%9B%BE%E6%AF%94%E8%BE%83%E4%BC%98%E9%9B%85%E7%9A%84%E6%96%B9%E5%BC%8F%20/" target="_self">
+          <img src="/img/Snip20220308_16_min.png" srcset="/img/loading.gif" lazyload alt="vue2项目中封装echarts地图比较优雅的方式">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/03/08/vue2%E9%A1%B9%E7%9B%AE%E4%B8%AD%E5%B0%81%E8%A3%85echarts%E5%9C%B0%E5%9B%BE%E6%AF%94%E8%BE%83%E4%BC%98%E9%9B%85%E7%9A%84%E6%96%B9%E5%BC%8F%20/" target="_self">
+          vue2项目中封装echarts地图比较优雅的方式
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2022/03/08/vue2%E9%A1%B9%E7%9B%AE%E4%B8%AD%E5%B0%81%E8%A3%85echarts%E5%9C%B0%E5%9B%BE%E6%AF%94%E8%BE%83%E4%BC%98%E9%9B%85%E7%9A%84%E6%96%B9%E5%BC%8F%20/" target="_self">
+          
+          vue项目中，对echarts地图封装，用于显示区域地图，实现自定义弹窗。弹窗样式自定义，可显示文字、图文、视频......
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-03-08 17:29" pubdate>
+              2022-03-08
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E5%89%8D%E7%AB%AF/">前端</a>
+            
+              <a href="/tags/echarts/">echarts</a>
+            
+              <a href="/tags/%E5%9C%B0%E5%9B%BE/">地图</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2022/01/22/%E8%AE%B0%E4%B8%80%E6%AC%A1%E6%B5%8F%E8%A7%88%E5%99%A8SameSite%E7%AD%96%E7%95%A5%E6%9B%B4%E6%96%B0%EF%BC%8C%E5%AF%BC%E8%87%B4%E6%8E%A5%E5%8F%A3%20Failed%20to%20load%20response%20data%20%E7%9A%84%E8%A7%A3%E5%86%B3%E8%BF%87%E7%A8%8B/" target="_self">
+          <img src="/img/Snip20220120_3_min.png" srcset="/img/loading.gif" lazyload alt="记一次浏览器SameSite策略更新，导致接口 Failed to load response data 的解决过程">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/01/22/%E8%AE%B0%E4%B8%80%E6%AC%A1%E6%B5%8F%E8%A7%88%E5%99%A8SameSite%E7%AD%96%E7%95%A5%E6%9B%B4%E6%96%B0%EF%BC%8C%E5%AF%BC%E8%87%B4%E6%8E%A5%E5%8F%A3%20Failed%20to%20load%20response%20data%20%E7%9A%84%E8%A7%A3%E5%86%B3%E8%BF%87%E7%A8%8B/" target="_self">
+          记一次浏览器SameSite策略更新，导致接口 Failed to load response data 的解决过程
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2022/01/22/%E8%AE%B0%E4%B8%80%E6%AC%A1%E6%B5%8F%E8%A7%88%E5%99%A8SameSite%E7%AD%96%E7%95%A5%E6%9B%B4%E6%96%B0%EF%BC%8C%E5%AF%BC%E8%87%B4%E6%8E%A5%E5%8F%A3%20Failed%20to%20load%20response%20data%20%E7%9A%84%E8%A7%A3%E5%86%B3%E8%BF%87%E7%A8%8B/" target="_self">
+          
+          记一次浏览器SameSite策略更新，导致接口 Failed to load response data 的解决过程
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-01-22 12:46" pubdate>
+              2022-01-22
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E5%89%8D%E7%AB%AF/">前端</a>
+            
+              <a href="/tags/%E9%94%99%E8%AF%AF/">错误</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2022/01/10/video-time-slider%EF%BC%8C%E7%94%A8%E4%BA%8EIVR%E8%A7%86%E9%A2%91%E5%9B%9E%E6%92%AD%E7%9A%84%E6%97%B6%E9%97%B4%E9%80%89%E6%8B%A9%E6%8F%92%E4%BB%B6/" target="_self">
+          <img src="/img/Snip20220107_10_min.png" srcset="/img/loading.gif" lazyload alt="video-time-slider，用于IVR视频回播的时间选择插件">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/01/10/video-time-slider%EF%BC%8C%E7%94%A8%E4%BA%8EIVR%E8%A7%86%E9%A2%91%E5%9B%9E%E6%92%AD%E7%9A%84%E6%97%B6%E9%97%B4%E9%80%89%E6%8B%A9%E6%8F%92%E4%BB%B6/" target="_self">
+          video-time-slider，用于IVR视频回播的时间选择插件
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2022/01/10/video-time-slider%EF%BC%8C%E7%94%A8%E4%BA%8EIVR%E8%A7%86%E9%A2%91%E5%9B%9E%E6%92%AD%E7%9A%84%E6%97%B6%E9%97%B4%E9%80%89%E6%8B%A9%E6%8F%92%E4%BB%B6/" target="_self">
+          
+          video-time-slider，用于IVR视频回播的时间选择插件，为项目微信小程序制作，基于uni-app开发
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-01-10 17:02" pubdate>
+              2022-01-10
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E5%89%8D%E7%AB%AF/">前端</a>
+            
+              <a href="/tags/video/">video</a>
+            
+              <a href="/tags/%E8%A7%86%E9%A2%91%E6%92%AD%E6%94%BE/">视频播放</a>
+            
+              <a href="/tags/video-time-slider/">video-time-slider</a>
+            
+              <a href="/tags/uni-app/">uni-app</a>
+            
+              <a href="/tags/vue/">vue</a>
+            
+              <a href="/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/">小程序</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2021/12/22/EasyPlayer.js%E4%BF%AE%E6%94%B9%E9%BB%98%E8%AE%A4%E7%9A%84%E8%AF%B7%E6%B1%82%E6%96%B9%E5%BC%8F%E5%AE%9E%E6%93%8D%E8%BF%87%E7%A8%8B/" target="_self">
+          <img src="/img/Snip20211220_8.png" srcset="/img/loading.gif" lazyload alt="EasyPlayer.js修改默认的请求方式实操过程">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/12/22/EasyPlayer.js%E4%BF%AE%E6%94%B9%E9%BB%98%E8%AE%A4%E7%9A%84%E8%AF%B7%E6%B1%82%E6%96%B9%E5%BC%8F%E5%AE%9E%E6%93%8D%E8%BF%87%E7%A8%8B/" target="_self">
+          EasyPlayer.js修改默认的请求方式实操过程
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/12/22/EasyPlayer.js%E4%BF%AE%E6%94%B9%E9%BB%98%E8%AE%A4%E7%9A%84%E8%AF%B7%E6%B1%82%E6%96%B9%E5%BC%8F%E5%AE%9E%E6%93%8D%E8%BF%87%E7%A8%8B/" target="_self">
+          
+          EasyPlayer请求视频流地址时，默认是HEAD请求方式的，现在服务提供方的视频流地址需要GET或者POST方式才能访问，不然就503 forbidden错误，拒绝访问。
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-12-22 09:22" pubdate>
+              2021-12-22
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E5%89%8D%E7%AB%AF/">前端</a>
+            
+              <a href="/tags/video/">video</a>
+            
+              <a href="/tags/EasyPlayer-js/">EasyPlayer.js</a>
+            
+              <a href="/tags/%E8%A7%86%E9%A2%91%E6%92%AD%E6%94%BE/">视频播放</a>
+            
+              <a href="/tags/vue/">vue</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
@@ -205,9 +453,6 @@
 
       <p class="index-excerpt">
         <a href="/2021/10/25/create-vue%E5%88%9D%E8%AF%95%EF%BC%8C%E9%97%AE%E9%A2%98%E5%B0%8F%E7%BB%93/" target="_self">
-          
-          
-            
           
           create-vue初试，问题小结
         </a>
@@ -256,9 +501,6 @@
       <p class="index-excerpt">
         <a href="/2021/08/01/%E6%88%91%E5%81%9A%E8%BF%87%E7%9A%84%E8%BF%98%E6%AF%94%E8%BE%83%E6%BB%A1%E6%84%8F%E7%9A%84%E9%A1%B9%E7%9B%AE/" target="_self">
           
-          
-            
-          
           参与不少项目，列下比较喜欢的。
         </a>
       </p>
@@ -305,9 +547,6 @@
 
       <p class="index-excerpt">
         <a href="/2020/08/05/Vue%E6%8A%A5%E9%94%99%EF%BC%9AYou%20are%20using%20the%20runtime-only%20build%20of%20Vue%20where%20the%20template%20compiler%20is%20not%20available/" target="_self">
-          
-          
-            
           
           Vue报错：You are using the runtime-only build of Vue where the template compiler is not available
         </a>
@@ -358,9 +597,6 @@
       <p class="index-excerpt">
         <a href="/2020/07/06/%E6%88%91%E4%BD%BF%E7%94%A8%E7%9A%84Mac%E8%BD%AF%E4%BB%B6%E5%8F%8A%E5%B7%A5%E5%85%B7/" target="_self">
           
-          
-            
-          
           方便查找，特别是换新机器的时候
         </a>
       </p>
@@ -409,9 +645,6 @@
 
       <p class="index-excerpt">
         <a href="/2020/07/01/%E8%B7%A8%E5%B9%B3%E5%8F%B0%E9%85%B7%E7%82%AB%E5%8A%A8%E7%94%BB%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%A1%88%E6%8E%A8%E8%8D%90%EF%BC%88iOS,Android,Web%EF%BC%89/" target="_self">
-          
-          
-            
           
           记录下可以实现跨平台动画的方案
         </a>
@@ -474,9 +707,6 @@
       <p class="index-excerpt">
         <a href="/2020/06/30/Vue%E9%AB%98%E5%BE%B7%E5%9C%B0%E5%9B%BELoca%202.0%E9%A3%9E%E7%BA%BF%E5%8A%9F%E8%83%BD%E5%88%9D%E4%BD%93%E9%AA%8C/" target="_self">
           
-          
-            
-          
           高德地图飞线图层，可以支持弧度，宽度，过渡色等能力。 并且还支持脉冲动画，可以表达数据的朝向
         </a>
       </p>
@@ -518,256 +748,6 @@
     </article>
   </div>
 
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2020/06/24/%E9%AB%98%E5%BE%B7%E5%BC%80%E6%94%BE%E5%B9%B3%E5%8F%B0GeoHUB%E5%88%9D%E7%94%A8%EF%BC%88Vue%E4%BD%BF%E7%94%A8%E9%AB%98%E5%BE%B7%E5%9C%B0%E5%9B%BELoca%202.0%EF%BC%89/" target="_self">
-          <img src="/img/Snip20210901_78.gif" srcset="/img/loading.gif" lazyload alt="高德开放平台GeoHUB初用（Vue使用高德地图Loca 2.0）">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2020/06/24/%E9%AB%98%E5%BE%B7%E5%BC%80%E6%94%BE%E5%B9%B3%E5%8F%B0GeoHUB%E5%88%9D%E7%94%A8%EF%BC%88Vue%E4%BD%BF%E7%94%A8%E9%AB%98%E5%BE%B7%E5%9C%B0%E5%9B%BELoca%202.0%EF%BC%89/" target="_self">
-          高德开放平台GeoHUB初用（Vue使用高德地图Loca 2.0）
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2020/06/24/%E9%AB%98%E5%BE%B7%E5%BC%80%E6%94%BE%E5%B9%B3%E5%8F%B0GeoHUB%E5%88%9D%E7%94%A8%EF%BC%88Vue%E4%BD%BF%E7%94%A8%E9%AB%98%E5%BE%B7%E5%9C%B0%E5%9B%BELoca%202.0%EF%BC%89/" target="_self">
-          
-          
-            
-          
-          通过Loca.ScatterLayer展示下GeoHUB的简单使用
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2020-06-24 22:37" pubdate>
-              2020-06-24
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/%E9%AB%98%E5%BE%B7%E5%9C%B0%E5%9B%BE/">高德地图</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E5%89%8D%E7%AB%AF/">前端</a>
-            
-              <a href="/tags/Vue/">Vue</a>
-            
-              <a href="/tags/%E9%AB%98%E5%BE%B7%E5%9C%B0%E5%9B%BE/">高德地图</a>
-            
-              <a href="/tags/GeoHUB/">GeoHUB</a>
-            
-              <a href="/tags/Loca-2-0/">Loca 2.0</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2020/06/22/Vue%E8%A7%86%E9%A2%91%E6%92%AD%E6%94%BE%E8%BF%9B%E8%A1%8C+%E6%B0%B4%E5%8D%B0%E7%9A%84%E6%88%AA%E5%9B%BE/" target="_self">
-          <img src="/img/Snip20210831_72.png" srcset="/img/loading.gif" lazyload alt="Vue视频播放进行+水印的截图">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2020/06/22/Vue%E8%A7%86%E9%A2%91%E6%92%AD%E6%94%BE%E8%BF%9B%E8%A1%8C+%E6%B0%B4%E5%8D%B0%E7%9A%84%E6%88%AA%E5%9B%BE/" target="_self">
-          Vue视频播放进行+水印的截图
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2020/06/22/Vue%E8%A7%86%E9%A2%91%E6%92%AD%E6%94%BE%E8%BF%9B%E8%A1%8C+%E6%B0%B4%E5%8D%B0%E7%9A%84%E6%88%AA%E5%9B%BE/" target="_self">
-          
-          
-            
-          
-          展示下普通视频播放和直播视频播放的加水印方式
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2020-06-22 22:27" pubdate>
-              2020-06-22
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/%E8%A7%86%E9%A2%91%E6%92%AD%E6%94%BE/">视频播放</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E5%89%8D%E7%AB%AF/">前端</a>
-            
-              <a href="/tags/Vue/">Vue</a>
-            
-              <a href="/tags/video/">video</a>
-            
-              <a href="/tags/%E8%A7%86%E9%A2%91%E6%92%AD%E6%94%BE/">视频播放</a>
-            
-              <a href="/tags/Aliplayer/">Aliplayer</a>
-            
-              <a href="/tags/EasyPlayer-js/">EasyPlayer.js</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2020/06/20/Vue%E5%AF%B9%E9%AB%98%E5%BE%B7%E5%9C%B0%E5%9B%BE2.0%E7%9A%84%E5%B0%81%E8%A3%85%E4%BD%BF%E7%94%A8/" target="_self">
-          <img src="/img/Snip20210820_71.png" srcset="/img/loading.gif" lazyload alt="Vue对高德地图2.0的封装使用">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2020/06/20/Vue%E5%AF%B9%E9%AB%98%E5%BE%B7%E5%9C%B0%E5%9B%BE2.0%E7%9A%84%E5%B0%81%E8%A3%85%E4%BD%BF%E7%94%A8/" target="_self">
-          Vue对高德地图2.0的封装使用
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2020/06/20/Vue%E5%AF%B9%E9%AB%98%E5%BE%B7%E5%9C%B0%E5%9B%BE2.0%E7%9A%84%E5%B0%81%E8%A3%85%E4%BD%BF%E7%94%A8/" target="_self">
-          
-          
-            
-          
-          Vue项目里面使用高德地图2.0，封装成组件使用，方便使用、复用。涉及的知识点：Vue插槽 slot、Vue通知 emit和on、Vue组件封装、Vue异步加载组件等
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2020-06-20 20:24" pubdate>
-              2020-06-20
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/Vue/">Vue</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E5%89%8D%E7%AB%AF/">前端</a>
-            
-              <a href="/tags/Vue/">Vue</a>
-            
-              <a href="/tags/%E9%AB%98%E5%BE%B7%E5%9C%B0%E5%9B%BE/">高德地图</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2020/05/31/Vue+%20Element%EF%BC%8C%E8%AE%B0%E5%8A%A8%E6%80%81%E7%94%9F%E6%88%90%E8%A1%A8%E6%A0%BC%E5%9C%A8%E4%B8%80%E4%B8%AA%E8%BF%90%E7%BB%B4%E9%A1%B9%E7%9B%AE%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8/" target="_self">
-          <img src="/img/Snip20210813_2.png" srcset="/img/loading.gif" lazyload alt="Vue+ Element，记动态生成表格在一个运维项目中的应用">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2020/05/31/Vue+%20Element%EF%BC%8C%E8%AE%B0%E5%8A%A8%E6%80%81%E7%94%9F%E6%88%90%E8%A1%A8%E6%A0%BC%E5%9C%A8%E4%B8%80%E4%B8%AA%E8%BF%90%E7%BB%B4%E9%A1%B9%E7%9B%AE%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8/" target="_self">
-          Vue+ Element，记动态生成表格在一个运维项目中的应用
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2020/05/31/Vue+%20Element%EF%BC%8C%E8%AE%B0%E5%8A%A8%E6%80%81%E7%94%9F%E6%88%90%E8%A1%A8%E6%A0%BC%E5%9C%A8%E4%B8%80%E4%B8%AA%E8%BF%90%E7%BB%B4%E9%A1%B9%E7%9B%AE%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8/" target="_self">
-          
-          
-            
-          
-          运维需要，需要把运维时命令行查询的结果在前端展示，需要动态生成表格，列可排序、可筛选，表格可搜索、可导出Excel，这里分享下一些主要功能的实现
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2020-05-31 21:11" pubdate>
-              2020-05-31
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/Vue/">Vue</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E5%89%8D%E7%AB%AF/">前端</a>
-            
-              <a href="/tags/Vue/">Vue</a>
-            
-              <a href="/tags/Element/">Element</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
 
 
   <nav aria-label="navigation">
@@ -786,7 +766,7 @@
     
 
     
-      <a id="scroll-top-button" href="#" role="button">
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
         <i class="iconfont icon-arrowup" aria-hidden="true"></i>
       </a>
     
@@ -857,8 +837,8 @@
 
   <!-- SCRIPTS -->
   
-  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
 
   <script>
     NProgress.configure({"showSpinner":false,"trickleSpeed":100})
@@ -869,12 +849,16 @@
   </script>
 
 
-<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
-<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
 <script  src="/js/events.js" ></script>
 <script  src="/js/plugins.js" ></script>
 
 <!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
 
 
   
@@ -890,29 +874,17 @@
 
 
 
-
-
-
-  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
-
-
-
-  <script  src="/js/local-search.js" ></script>
-
-
-
-
   <script defer src="/js/leancloud.js" ></script>
 
 
 
-  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12/lib/typed.min.js" ></script>
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
   <script>
     (function (window, document) {
       var typing = Fluid.plugins.typing;
       var title = document.getElementById('subtitle').title;
       
-      typing(title)
+        typing(title);
       
     })(window, document);
   </script>

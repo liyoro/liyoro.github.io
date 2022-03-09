@@ -1,7 +1,7 @@
 
 
 <!DOCTYPE html>
-<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+<html lang="zh-CN" data-default-color-scheme=auto>
 
 
 
@@ -9,18 +9,26 @@
   <meta charset="UTF-8">
   <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
   <link rel="icon" href="/img/favicon.png">
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="description" content="">
   <meta name="author" content="liyoro">
   <meta name="keywords" content="前端,Vue,数据可视化">
   
+    <meta property="og:type" content="website">
+<meta property="og:title" content="标签">
+<meta property="og:url" content="https://liyoro.com/tags/index.html">
+<meta property="og:site_name" content="大头">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="liyoro">
+<meta property="article:tag" content="前端,Vue,数据可视化">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
   <title>标签 - 大头</title>
 
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
 
 
@@ -44,19 +52,20 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"liyoro.com","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"04CJAnEXCVfX1bWMJMbPyEoA-gzGzoHsz","app_key":"SWmIhOX3zEAuJ2D9qLEJQugF","server_url":null}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"liyoro.com","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"04CJAnEXCVfX1bWMJMbPyEoA-gzGzoHsz","app_key":"SWmIhOX3zEAuJ2D9qLEJQugF","server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.4.0"></head>
+<meta name="generator" content="Hexo 5.4.1"></head>
 
 
 <body>
   <header style="height: 80vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand"
-       href="/">&nbsp;<strong>liyoro</strong>&nbsp;</a>
+    <a class="navbar-brand" href="/">
+      <strong>liyoro</strong>
+    </a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent"
@@ -142,13 +151,14 @@
         
         
           <li class="nav-item" id="search-btn">
-            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
-                class="iconfont icon-search"></i>&nbsp;</a>
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
           </li>
         
         
           <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" target="_self">&nbsp;<i
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
                 class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
           </li>
         
@@ -192,7 +202,7 @@
                 
 
 <div class="text-center tagcloud">
-  <a href="/tags/Aliplayer/" style="font-size: 15px; color: #bbe">Aliplayer</a> <a href="/tags/Apache/" style="font-size: 19.29px; color: #94a8de">Apache</a> <a href="/tags/Coding-net/" style="font-size: 17.14px; color: #a8b2e6">Coding.net</a> <a href="/tags/EasyPlayer-js/" style="font-size: 15px; color: #bbe">EasyPlayer.js</a> <a href="/tags/Echarts/" style="font-size: 15px; color: #bbe">Echarts</a> <a href="/tags/Element/" style="font-size: 25.71px; color: #5a8dc7">Element</a> <a href="/tags/GeoHUB/" style="font-size: 17.14px; color: #a8b2e6">GeoHUB</a> <a href="/tags/Hexo/" style="font-size: 17.14px; color: #a8b2e6">Hexo</a> <a href="/tags/Loca-2-0/" style="font-size: 17.14px; color: #a8b2e6">Loca 2.0</a> <a href="/tags/Lottie/" style="font-size: 15px; color: #bbe">Lottie</a> <a href="/tags/MAMP/" style="font-size: 15px; color: #bbe">MAMP</a> <a href="/tags/Mac/" style="font-size: 17.14px; color: #a8b2e6">Mac</a> <a href="/tags/Nginx/" style="font-size: 17.14px; color: #a8b2e6">Nginx</a> <a href="/tags/SVG/" style="font-size: 15px; color: #bbe">SVG</a> <a href="/tags/SVGA/" style="font-size: 15px; color: #bbe">SVGA</a> <a href="/tags/VAP/" style="font-size: 15px; color: #bbe">VAP</a> <a href="/tags/VSCode/" style="font-size: 25.71px; color: #5a8dc7">VSCode</a> <a href="/tags/Vue/" style="font-size: 30px; color: #337ab7">Vue</a> <a href="/tags/css/" style="font-size: 15px; color: #bbe">css</a> <a href="/tags/github/" style="font-size: 15px; color: #bbe">github</a> <a href="/tags/html/" style="font-size: 15px; color: #bbe">html</a> <a href="/tags/mock/" style="font-size: 15px; color: #bbe">mock</a> <a href="/tags/video/" style="font-size: 15px; color: #bbe">video</a> <a href="/tags/web/" style="font-size: 17.14px; color: #a8b2e6">web</a> <a href="/tags/web%E5%89%8D%E7%AB%AF/" style="font-size: 17.14px; color: #a8b2e6">web前端</a> <a href="/tags/%E5%81%9A%E8%BF%87%E7%9A%84%E9%A1%B9%E7%9B%AE/" style="font-size: 19.29px; color: #94a8de">做过的项目</a> <a href="/tags/%E5%88%86%E4%BA%AB/" style="font-size: 23.57px; color: #6d96cf">分享</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 27.86px; color: #4683bf">前端</a> <a href="/tags/%E5%8A%A8%E7%94%BB/" style="font-size: 15px; color: #bbe">动画</a> <a href="/tags/%E5%93%8D%E5%BA%94%E5%BC%8F/" style="font-size: 15px; color: #bbe">响应式</a> <a href="/tags/%E5%9B%BE%E8%A1%A8/" style="font-size: 17.14px; color: #a8b2e6">图表</a> <a href="/tags/%E5%A4%A7%E5%B1%8F/" style="font-size: 21.43px; color: #819fd6">大屏</a> <a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 17.14px; color: #a8b2e6">工具</a> <a href="/tags/%E6%97%85%E8%A1%8C/" style="font-size: 17.14px; color: #a8b2e6">旅行</a> <a href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" style="font-size: 19.29px; color: #94a8de">服务器</a> <a href="/tags/%E7%BE%8E%E9%A3%9F/" style="font-size: 15px; color: #bbe">美食</a> <a href="/tags/%E8%A7%86%E9%A2%91%E6%92%AD%E6%94%BE/" style="font-size: 15px; color: #bbe">视频播放</a> <a href="/tags/%E8%BD%AF%E4%BB%B6/" style="font-size: 15px; color: #bbe">软件</a> <a href="/tags/%E9%94%99%E8%AF%AF/" style="font-size: 15px; color: #bbe">错误</a> <a href="/tags/%E9%AB%98%E5%BE%B7%E5%9C%B0%E5%9B%BE/" style="font-size: 19.29px; color: #94a8de">高德地图</a>
+  <a href="/tags/Aliplayer/" style="font-size: 15px; color: #bbe">Aliplayer</a> <a href="/tags/Apache/" style="font-size: 19.29px; color: #94a8de">Apache</a> <a href="/tags/Coding-net/" style="font-size: 17.14px; color: #a8b2e6">Coding.net</a> <a href="/tags/EasyPlayer-js/" style="font-size: 17.14px; color: #a8b2e6">EasyPlayer.js</a> <a href="/tags/Echarts/" style="font-size: 15px; color: #bbe">Echarts</a> <a href="/tags/Element/" style="font-size: 25.71px; color: #5a8dc7">Element</a> <a href="/tags/GeoHUB/" style="font-size: 17.14px; color: #a8b2e6">GeoHUB</a> <a href="/tags/Hexo/" style="font-size: 17.14px; color: #a8b2e6">Hexo</a> <a href="/tags/Loca-2-0/" style="font-size: 17.14px; color: #a8b2e6">Loca 2.0</a> <a href="/tags/Lottie/" style="font-size: 15px; color: #bbe">Lottie</a> <a href="/tags/MAMP/" style="font-size: 15px; color: #bbe">MAMP</a> <a href="/tags/Mac/" style="font-size: 17.14px; color: #a8b2e6">Mac</a> <a href="/tags/Nginx/" style="font-size: 17.14px; color: #a8b2e6">Nginx</a> <a href="/tags/SVG/" style="font-size: 15px; color: #bbe">SVG</a> <a href="/tags/SVGA/" style="font-size: 15px; color: #bbe">SVGA</a> <a href="/tags/VAP/" style="font-size: 15px; color: #bbe">VAP</a> <a href="/tags/VSCode/" style="font-size: 25.71px; color: #5a8dc7">VSCode</a> <a href="/tags/Vue/" style="font-size: 30px; color: #337ab7">Vue</a> <a href="/tags/css/" style="font-size: 15px; color: #bbe">css</a> <a href="/tags/echarts/" style="font-size: 15px; color: #bbe">echarts</a> <a href="/tags/github/" style="font-size: 15px; color: #bbe">github</a> <a href="/tags/html/" style="font-size: 15px; color: #bbe">html</a> <a href="/tags/mock/" style="font-size: 15px; color: #bbe">mock</a> <a href="/tags/uni-app/" style="font-size: 15px; color: #bbe">uni-app</a> <a href="/tags/video/" style="font-size: 19.29px; color: #94a8de">video</a> <a href="/tags/video-time-slider/" style="font-size: 15px; color: #bbe">video-time-slider</a> <a href="/tags/vue/" style="font-size: 17.14px; color: #a8b2e6">vue</a> <a href="/tags/web/" style="font-size: 17.14px; color: #a8b2e6">web</a> <a href="/tags/web%E5%89%8D%E7%AB%AF/" style="font-size: 17.14px; color: #a8b2e6">web前端</a> <a href="/tags/%E5%81%9A%E8%BF%87%E7%9A%84%E9%A1%B9%E7%9B%AE/" style="font-size: 19.29px; color: #94a8de">做过的项目</a> <a href="/tags/%E5%88%86%E4%BA%AB/" style="font-size: 23.57px; color: #6d96cf">分享</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 27.86px; color: #4683bf">前端</a> <a href="/tags/%E5%8A%A8%E7%94%BB/" style="font-size: 15px; color: #bbe">动画</a> <a href="/tags/%E5%93%8D%E5%BA%94%E5%BC%8F/" style="font-size: 15px; color: #bbe">响应式</a> <a href="/tags/%E5%9B%BE%E8%A1%A8/" style="font-size: 17.14px; color: #a8b2e6">图表</a> <a href="/tags/%E5%9C%B0%E5%9B%BE/" style="font-size: 15px; color: #bbe">地图</a> <a href="/tags/%E5%A4%A7%E5%B1%8F/" style="font-size: 21.43px; color: #819fd6">大屏</a> <a href="/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/" style="font-size: 15px; color: #bbe">小程序</a> <a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 17.14px; color: #a8b2e6">工具</a> <a href="/tags/%E6%97%85%E8%A1%8C/" style="font-size: 17.14px; color: #a8b2e6">旅行</a> <a href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" style="font-size: 19.29px; color: #94a8de">服务器</a> <a href="/tags/%E7%BE%8E%E9%A3%9F/" style="font-size: 15px; color: #bbe">美食</a> <a href="/tags/%E8%A7%86%E9%A2%91%E6%92%AD%E6%94%BE/" style="font-size: 19.29px; color: #94a8de">视频播放</a> <a href="/tags/%E8%BD%AF%E4%BB%B6/" style="font-size: 15px; color: #bbe">软件</a> <a href="/tags/%E9%94%99%E8%AF%AF/" style="font-size: 17.14px; color: #a8b2e6">错误</a> <a href="/tags/%E9%AB%98%E5%BE%B7%E5%9C%B0%E5%9B%BE/" style="font-size: 19.29px; color: #94a8de">高德地图</a>
 </div>
 
               </div>
@@ -203,7 +213,7 @@
     
 
     
-      <a id="scroll-top-button" href="#" role="button">
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
         <i class="iconfont icon-arrowup" aria-hidden="true"></i>
       </a>
     
@@ -274,8 +284,8 @@
 
   <!-- SCRIPTS -->
   
-  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
 
   <script>
     NProgress.configure({"showSpinner":false,"trickleSpeed":100})
@@ -286,12 +296,16 @@
   </script>
 
 
-<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
-<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
 <script  src="/js/events.js" ></script>
 <script  src="/js/plugins.js" ></script>
 
 <!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
 
 
   
@@ -307,29 +321,17 @@
 
 
 
-
-
-
-  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
-
-
-
-  <script  src="/js/local-search.js" ></script>
-
-
-
-
   <script defer src="/js/leancloud.js" ></script>
 
 
 
-  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12/lib/typed.min.js" ></script>
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
   <script>
     (function (window, document) {
       var typing = Fluid.plugins.typing;
       var title = document.getElementById('subtitle').title;
       
-      typing(title)
+        typing(title);
       
     })(window, document);
   </script>

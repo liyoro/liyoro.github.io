@@ -1,7 +1,7 @@
 
 
 <!DOCTYPE html>
-<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+<html lang="zh-CN" data-default-color-scheme=auto>
 
 
 
@@ -9,18 +9,26 @@
   <meta charset="UTF-8">
   <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
   <link rel="icon" href="/img/favicon.png">
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="description" content="">
   <meta name="author" content="liyoro">
   <meta name="keywords" content="前端,Vue,数据可视化">
   
+    <meta property="og:type" content="website">
+<meta property="og:title" content="大头">
+<meta property="og:url" content="https://liyoro.com/page/3/index.html">
+<meta property="og:site_name" content="大头">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="liyoro">
+<meta property="article:tag" content="前端,Vue,数据可视化">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
   <title>大头</title>
 
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
 
 
@@ -44,19 +52,20 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"liyoro.com","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"04CJAnEXCVfX1bWMJMbPyEoA-gzGzoHsz","app_key":"SWmIhOX3zEAuJ2D9qLEJQugF","server_url":null}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"liyoro.com","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"04CJAnEXCVfX1bWMJMbPyEoA-gzGzoHsz","app_key":"SWmIhOX3zEAuJ2D9qLEJQugF","server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.4.0"></head>
+<meta name="generator" content="Hexo 5.4.1"></head>
 
 
 <body>
   <header style="height: 100vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand"
-       href="/">&nbsp;<strong>liyoro</strong>&nbsp;</a>
+    <a class="navbar-brand" href="/">
+      <strong>liyoro</strong>
+    </a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent"
@@ -142,13 +151,14 @@
         
         
           <li class="nav-item" id="search-btn">
-            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
-                class="iconfont icon-search"></i>&nbsp;</a>
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
           </li>
         
         
           <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" target="_self">&nbsp;<i
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
                 class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
           </li>
         
@@ -161,7 +171,7 @@
          style="background: url('/img/default.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
-        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0)">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
             <span class="h2" id="subtitle" title="稍微记录下......">
               
@@ -195,6 +205,224 @@
   <div class="row mx-auto index-card">
     
     
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/05/20/Mac%E8%87%AA%E5%B8%A6Apache%E4%BD%BF%E7%94%A8/" target="_self">
+          Mac自带Apache使用
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2020/05/20/Mac%E8%87%AA%E5%B8%A6Apache%E4%BD%BF%E7%94%A8/" target="_self">
+          
+          Mac使用自带Apache，部署前端静态项目
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-05-20 21:24" pubdate>
+              2020-05-20
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E5%89%8D%E7%AB%AF/">前端</a>
+            
+              <a href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/">服务器</a>
+            
+              <a href="/tags/Apache/">Apache</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2020/05/19/%E5%A6%82%E4%BD%95%E5%BF%AB%E9%80%9F%E5%BC%80%E5%8F%91%E4%B8%80%E4%B8%AA%E5%93%8D%E5%BA%94%E5%BC%8F%E7%A7%BB%E5%8A%A8%E7%AB%AF%E9%A1%B5%E9%9D%A2/" target="_self">
+          <img src="/img/Snip20210729_34_min.png" srcset="/img/loading.gif" lazyload alt="如何快速开发一个响应式移动端页面">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/05/19/%E5%A6%82%E4%BD%95%E5%BF%AB%E9%80%9F%E5%BC%80%E5%8F%91%E4%B8%80%E4%B8%AA%E5%93%8D%E5%BA%94%E5%BC%8F%E7%A7%BB%E5%8A%A8%E7%AB%AF%E9%A1%B5%E9%9D%A2/" target="_self">
+          如何快速开发一个响应式移动端页面
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2020/05/19/%E5%A6%82%E4%BD%95%E5%BF%AB%E9%80%9F%E5%BC%80%E5%8F%91%E4%B8%80%E4%B8%AA%E5%93%8D%E5%BA%94%E5%BC%8F%E7%A7%BB%E5%8A%A8%E7%AB%AF%E9%A1%B5%E9%9D%A2/" target="_self">
+          
+          flexible.js配合蓝湖设计图快速实现响应式页面
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-05-19 22:28" pubdate>
+              2020-05-19
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E5%89%8D%E7%AB%AF/">前端</a>
+            
+              <a href="/tags/web/">web</a>
+            
+              <a href="/tags/css/">css</a>
+            
+              <a href="/tags/html/">html</a>
+            
+              <a href="/tags/%E5%93%8D%E5%BA%94%E5%BC%8F/">响应式</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/05/18/Vue-history%E6%A8%A1%E5%BC%8F%E4%B8%8B%E5%AD%90%E9%A1%B5%E9%9D%A2%E5%88%B7%E6%96%B0404%E9%97%AE%E9%A2%98/" target="_self">
+          Vue history模式下子页面刷新404问题
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2020/05/18/Vue-history%E6%A8%A1%E5%BC%8F%E4%B8%8B%E5%AD%90%E9%A1%B5%E9%9D%A2%E5%88%B7%E6%96%B0404%E9%97%AE%E9%A2%98/" target="_self">
+          
+          这里在Mac自带Apache下部署，其它类型服务器可自行搜索解决
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-05-18 21:12" pubdate>
+              2020-05-18
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Vue/">Vue</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Apache/">Apache</a>
+            
+              <a href="/tags/Vue/">Vue</a>
+            
+              <a href="/tags/Mac/">Mac</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2020/05/17/Vue%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9D%87%E8%A1%A1%E5%99%A8%E6%A0%B7%E5%BC%8F%E6%9F%B1%E5%9B%BE/" target="_self">
+          <img src="/img/Snip20200601_17_min.png" srcset="/img/loading.gif" lazyload alt="Vue自定义均衡器样式柱图">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2020/05/17/Vue%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9D%87%E8%A1%A1%E5%99%A8%E6%A0%B7%E5%BC%8F%E6%9F%B1%E5%9B%BE/" target="_self">
+          Vue自定义均衡器样式柱图
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2020/05/17/Vue%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9D%87%E8%A1%A1%E5%99%A8%E6%A0%B7%E5%BC%8F%E6%9F%B1%E5%9B%BE/" target="_self">
+          
+          特殊定制均衡器样式柱图，为了展示。别问为什么这样设计！实现它就对了~。~！
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-05-17 18:52" pubdate>
+              2020-05-17
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Vue/">Vue</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Vue/">Vue</a>
+            
+              <a href="/tags/%E5%9B%BE%E8%A1%A8/">图表</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
       <div class="col-12 col-md-4 m-auto index-img">
         <a href="/2020/05/16/Vue%E8%87%AA%E5%AE%9A%E4%B9%89svg%E7%99%BE%E5%88%86%E6%AF%94%E5%9C%86%E7%8E%AF%E7%BB%84%E4%BB%B6/" target="_self">
           <img src="/img/Snip20200601_15_min.png" srcset="/img/loading.gif" lazyload alt="Vue自定义svg百分比圆环组件">
@@ -211,9 +439,6 @@
 
       <p class="index-excerpt">
         <a href="/2020/05/16/Vue%E8%87%AA%E5%AE%9A%E4%B9%89svg%E7%99%BE%E5%88%86%E6%AF%94%E5%9C%86%E7%8E%AF%E7%BB%84%E4%BB%B6/" target="_self">
-          
-          
-            
           
           特殊定制，为了展示
         </a>
@@ -268,9 +493,6 @@
       <p class="index-excerpt">
         <a href="/2020/05/14/%E5%89%8D%E7%AB%AF%E5%A4%A7%E5%B1%8F%E5%B1%95%E7%A4%BA%E6%A1%86%E6%9E%B6%E6%90%AD%E5%BB%BA%EF%BC%88%E5%9B%9B%EF%BC%89/" target="_self">
           
-          
-            
-          
           vw、vh实现响应式大屏
         </a>
       </p>
@@ -296,11 +518,11 @@
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
+              <a href="/tags/VSCode/">VSCode</a>
+            
               <a href="/tags/Vue/">Vue</a>
             
               <a href="/tags/Element/">Element</a>
-            
-              <a href="/tags/VSCode/">VSCode</a>
             
               <a href="/tags/%E5%A4%A7%E5%B1%8F/">大屏</a>
             
@@ -323,9 +545,6 @@
 
       <p class="index-excerpt">
         <a href="/2020/05/13/%E5%89%8D%E7%AB%AF%E5%A4%A7%E5%B1%8F%E5%B1%95%E7%A4%BA%E6%A1%86%E6%9E%B6%E6%90%AD%E5%BB%BA%EF%BC%88%E4%B8%89%EF%BC%89/" target="_self">
-          
-          
-            
           
           大屏全屏页面等比例缩放的实现
         </a>
@@ -352,11 +571,11 @@
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
+              <a href="/tags/VSCode/">VSCode</a>
+            
               <a href="/tags/Vue/">Vue</a>
             
               <a href="/tags/Element/">Element</a>
-            
-              <a href="/tags/VSCode/">VSCode</a>
             
               <a href="/tags/%E5%A4%A7%E5%B1%8F/">大屏</a>
             
@@ -379,9 +598,6 @@
 
       <p class="index-excerpt">
         <a href="/2020/05/12/%E5%89%8D%E7%AB%AF%E5%A4%A7%E5%B1%8F%E5%B1%95%E7%A4%BA%E6%A1%86%E6%9E%B6%E6%90%AD%E5%BB%BA%EF%BC%88%E4%BA%8C%EF%BC%89/" target="_self">
-          
-          
-            
           
           大屏基本布局实现
         </a>
@@ -408,11 +624,11 @@
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
+              <a href="/tags/VSCode/">VSCode</a>
+            
               <a href="/tags/Vue/">Vue</a>
             
               <a href="/tags/Element/">Element</a>
-            
-              <a href="/tags/VSCode/">VSCode</a>
             
               <a href="/tags/%E5%A4%A7%E5%B1%8F/">大屏</a>
             
@@ -435,9 +651,6 @@
 
       <p class="index-excerpt">
         <a href="/2020/05/11/%E5%89%8D%E7%AB%AF%E5%A4%A7%E5%B1%8F%E5%B1%95%E7%A4%BA%E6%A1%86%E6%9E%B6%E6%90%AD%E5%BB%BA%EF%BC%88%E4%B8%80%EF%BC%89/" target="_self">
-          
-          
-            
           
           基于VS Code的代码风格统一配置
         </a>
@@ -464,11 +677,11 @@
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
+              <a href="/tags/VSCode/">VSCode</a>
+            
               <a href="/tags/Vue/">Vue</a>
             
               <a href="/tags/Element/">Element</a>
-            
-              <a href="/tags/VSCode/">VSCode</a>
             
               <a href="/tags/%E5%A4%A7%E5%B1%8F/">大屏</a>
             
@@ -491,9 +704,6 @@
 
       <p class="index-excerpt">
         <a href="/2020/05/09/%E5%85%B3%E4%BA%8EMixin%E7%9A%84%E5%B0%8F%E7%9F%A5%E8%AF%86/" target="_self">
-          
-          
-            
           
           知道这几点，开发中基本够用
         </a>
@@ -528,214 +738,6 @@
     </article>
   </div>
 
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2020/04/19/Coding-net-Hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" target="_self">
-          Coding.net+Hexo搭建个人博客
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2020/04/19/Coding-net-Hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" target="_self">
-          
-          
-            
-          
-          Coding.net真的是一个很出色的产品，很适合个人和团队使用
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2020-04-19 19:26" pubdate>
-              2020-04-19
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/%E5%88%86%E4%BA%AB/">分享</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E5%88%86%E4%BA%AB/">分享</a>
-            
-              <a href="/tags/Hexo/">Hexo</a>
-            
-              <a href="/tags/Coding-net/">Coding.net</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2020/04/19/Hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" target="_self">
-          Hexo搭建个人博客
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2020/04/19/Hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" target="_self">
-          
-          
-            
-          
-          挺喜欢的，使用简单，会Markdown就行
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2020-04-19 17:34" pubdate>
-              2020-04-19
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/%E5%88%86%E4%BA%AB/">分享</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E5%88%86%E4%BA%AB/">分享</a>
-            
-              <a href="/tags/Hexo/">Hexo</a>
-            
-              <a href="/tags/Coding-net/">Coding.net</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2020/04/11/PageSpeed%E7%BD%91%E9%A1%B5%E6%80%A7%E8%83%BD%E8%AF%84%E4%BC%B0%E4%BC%98%E5%8C%96%E5%B7%A5%E5%85%B7/" target="_self">
-          PageSpeed网页性能评估优化工具
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2020/04/11/PageSpeed%E7%BD%91%E9%A1%B5%E6%80%A7%E8%83%BD%E8%AF%84%E4%BC%B0%E4%BC%98%E5%8C%96%E5%B7%A5%E5%85%B7/" target="_self">
-          
-          
-            
-          
-          测试网页在pc端和移动端上有什么性能问题，帮助开发人员进行性能优化。通过它可以发现平时应该注意许多性能方面的细节
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2020-04-11 00:10" pubdate>
-              2020-04-11
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/web%E5%89%8D%E7%AB%AF/">web前端</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2020/04/11/Lighthouse%E7%BD%91%E9%A1%B5%E6%80%A7%E8%83%BD%E8%AF%84%E4%BC%B0%E5%B7%A5%E5%85%B7/" target="_self">
-          Lighthouse网页性能评估工具
-        </a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2020/04/11/Lighthouse%E7%BD%91%E9%A1%B5%E6%80%A7%E8%83%BD%E8%AF%84%E4%BC%B0%E5%B7%A5%E5%85%B7/" target="_self">
-          
-          
-            
-          
-          用于分析web应用程序和web页面，收集关于开发人员最佳实践的现代性能指标和见解，让开发人员根据生成的评估页面，来进行网站优化和完善，提高用户体验
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2020-04-11 00:10" pubdate>
-              2020-04-11
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/web%E5%89%8D%E7%AB%AF/">web前端</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
 
 
   <nav aria-label="navigation">
@@ -754,7 +756,7 @@
     
 
     
-      <a id="scroll-top-button" href="#" role="button">
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
         <i class="iconfont icon-arrowup" aria-hidden="true"></i>
       </a>
     
@@ -825,8 +827,8 @@
 
   <!-- SCRIPTS -->
   
-  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
 
   <script>
     NProgress.configure({"showSpinner":false,"trickleSpeed":100})
@@ -837,12 +839,16 @@
   </script>
 
 
-<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
-<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
 <script  src="/js/events.js" ></script>
 <script  src="/js/plugins.js" ></script>
 
 <!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
 
 
   
@@ -858,29 +864,17 @@
 
 
 
-
-
-
-  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
-
-
-
-  <script  src="/js/local-search.js" ></script>
-
-
-
-
   <script defer src="/js/leancloud.js" ></script>
 
 
 
-  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12/lib/typed.min.js" ></script>
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
   <script>
     (function (window, document) {
       var typing = Fluid.plugins.typing;
       var title = document.getElementById('subtitle').title;
       
-      typing(title)
+        typing(title);
       
     })(window, document);
   </script>

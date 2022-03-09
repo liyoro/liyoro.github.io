@@ -1,7 +1,7 @@
 
 
 <!DOCTYPE html>
-<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+<html lang="zh-CN" data-default-color-scheme=auto>
 
 
 
@@ -9,35 +9,53 @@
   <meta charset="UTF-8">
   <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
   <link rel="icon" href="/img/favicon.png">
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="description" content="展示下普通视频播放和直播视频播放的加水印方式">
   <meta name="author" content="liyoro">
   <meta name="keywords" content="前端,Vue,数据可视化">
   
+    <meta name="description" content="展示下普通视频播放和直播视频播放的加水印方式">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vue视频播放进行+水印的截图">
+<meta property="og:url" content="https://liyoro.com/2020/06/22/Vue%E8%A7%86%E9%A2%91%E6%92%AD%E6%94%BE%E8%BF%9B%E8%A1%8C+%E6%B0%B4%E5%8D%B0%E7%9A%84%E6%88%AA%E5%9B%BE/index.html">
+<meta property="og:site_name" content="大头">
+<meta property="og:description" content="展示下普通视频播放和直播视频播放的加水印方式">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://liyoro.com/img/Snip20210831_72.png">
+<meta property="article:published_time" content="2020-06-22T14:27:38.000Z">
+<meta property="article:modified_time" content="2022-03-09T07:43:13.465Z">
+<meta property="article:author" content="liyoro">
+<meta property="article:tag" content="前端">
+<meta property="article:tag" content="Vue">
+<meta property="article:tag" content="video">
+<meta property="article:tag" content="Aliplayer">
+<meta property="article:tag" content="EasyPlayer.js">
+<meta property="article:tag" content="视频播放">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://liyoro.com/img/Snip20210831_72.png">
+  
+  
   <title>Vue视频播放进行+水印的截图 - 大头</title>
 
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
 
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
-  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
 
   
     
     
       
-      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.7.2/styles/github-gist.min.css" />
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
     
   
 
   
-    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
   
-
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
@@ -60,19 +78,20 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"liyoro.com","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"04CJAnEXCVfX1bWMJMbPyEoA-gzGzoHsz","app_key":"SWmIhOX3zEAuJ2D9qLEJQugF","server_url":null}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"liyoro.com","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"04CJAnEXCVfX1bWMJMbPyEoA-gzGzoHsz","app_key":"SWmIhOX3zEAuJ2D9qLEJQugF","server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.4.0"></head>
+<meta name="generator" content="Hexo 5.4.1"></head>
 
 
 <body>
   <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand"
-       href="/">&nbsp;<strong>liyoro</strong>&nbsp;</a>
+    <a class="navbar-brand" href="/">
+      <strong>liyoro</strong>
+    </a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent"
@@ -158,13 +177,14 @@
         
         
           <li class="nav-item" id="search-btn">
-            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
-                class="iconfont icon-search"></i>&nbsp;</a>
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
           </li>
         
         
           <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" target="_self">&nbsp;<i
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
                 class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
           </li>
         
@@ -198,21 +218,18 @@
 
 <div class="mt-1">
   
-    
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.1k 字
+      3.1k 字
     </span>
   
 
   
-    
     <span class="post-meta mr-2">
       <i class="iconfont icon-clock-fill"></i>
       
       
-      14
-       分钟
+      26 分钟
     </span>
   
 
@@ -258,9 +275,9 @@
 </li>
 </ul>
 <h3 id="主要实现代码"><a href="#主要实现代码" class="headerlink" title="主要实现代码"></a>主要实现代码</h3><p>具体可见 <a target="_blank" rel="noopener" href="https://github.com/liyoro/vue-skill">代码</a></p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs stylus">&lt;<span class="hljs-selector-tag">video</span> id=<span class="hljs-string">&quot;video1&quot;</span> controls crossOrigin=<span class="hljs-string">&quot;Anonymous&quot;</span> class=<span class="hljs-string">&quot;image&quot;</span> <span class="hljs-attribute">width</span>=<span class="hljs-string">&quot;520&quot;</span> height=<span class="hljs-string">&quot;320&quot;</span> style=<span class="hljs-string">&quot;object-fit: fill;&quot;</span>&gt;<br>  &lt;source :<span class="hljs-attribute">src</span>=<span class="hljs-string">&quot;url&quot;</span> type=<span class="hljs-string">&quot;video/mp4&quot;</span>&gt;<br>  您的浏览器不支持 <span class="hljs-selector-tag">video</span> 标签。<br>&lt;/video&gt;<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><pre><code class="hljs bash">&lt;video <span class="hljs-built_in">id</span>=<span class="hljs-string">&quot;video1&quot;</span> controls crossOrigin=<span class="hljs-string">&quot;Anonymous&quot;</span> class=<span class="hljs-string">&quot;image&quot;</span> width=<span class="hljs-string">&quot;520&quot;</span> height=<span class="hljs-string">&quot;320&quot;</span> style=<span class="hljs-string">&quot;object-fit: fill;&quot;</span>&gt;<br>  &lt;<span class="hljs-built_in">source</span> :src=<span class="hljs-string">&quot;url&quot;</span> <span class="hljs-built_in">type</span>=<span class="hljs-string">&quot;video/mp4&quot;</span>&gt;<br>  您的浏览器不支持 video 标签。<br>&lt;/video&gt;<br></code></pre></td></tr></table></figure>
 
-<figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs processing">captureClick() &#123;<br>  <span class="hljs-keyword">const</span> v = document.querySelector(<span class="hljs-string">&#x27;#video1&#x27;</span>)<br>  <span class="hljs-comment">// v.setAttribute(&#x27;crossOrigin&#x27;, &#x27;anonymous&#x27;)</span><br>  <span class="hljs-comment">// v.crossOrigin = &#x27;anonymous&#x27;</span><br>  <span class="hljs-keyword">const</span> <span class="hljs-built_in">width</span> = v.videoWidth<br>  <span class="hljs-keyword">const</span> <span class="hljs-built_in">height</span> = v.videoHeight<br><br>  <span class="hljs-keyword">const</span> canvas = window.canvas = document.createElement(<span class="hljs-string">&#x27;canvas&#x27;</span>)<br>  canvas.<span class="hljs-built_in">width</span> = <span class="hljs-built_in">width</span><br>  canvas.<span class="hljs-built_in">height</span> = <span class="hljs-built_in">height</span><br><br>  <span class="hljs-keyword">const</span> ctx = canvas.getContext(<span class="hljs-string">&#x27;2d&#x27;</span>)<br><br>  ctx.drawImage(v, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-built_in">width</span>, <span class="hljs-built_in">height</span>)<br><br>  ctx.<span class="hljs-built_in">rotate</span>(<span class="hljs-number">-16</span> * Math.<span class="hljs-literal">PI</span> / <span class="hljs-number">180</span>)<br>  ctx.font = <span class="hljs-string">&#x27;100px 宋体&#x27;</span><br>  ctx.fillStyle = <span class="hljs-string">&#x27;rgba(255, 255, 255, 1)&#x27;</span><br>  ctx.fillText(<span class="hljs-string">&#x27;测试水印&#x27;</span>, <span class="hljs-number">100</span>, <span class="hljs-built_in">height</span> - <span class="hljs-number">200</span>)<br><br>  <span class="hljs-keyword">const</span> <span class="hljs-built_in">image</span> = canvas.toDataURL(<span class="hljs-string">&#x27;image/png&#x27;</span>)<br>  <span class="hljs-keyword">this</span>.captureImg1 = <span class="hljs-built_in">image</span><br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs processing"><span class="hljs-title function_">captureClick</span>() &#123;<br>  <span class="hljs-keyword">const</span> v = document.<span class="hljs-property">querySelector</span>(<span class="hljs-string">&#x27;#video1&#x27;</span>)<br>  <span class="hljs-comment">// v.setAttribute(&#x27;crossOrigin&#x27;, &#x27;anonymous&#x27;)</span><br>  <span class="hljs-comment">// v.crossOrigin = &#x27;anonymous&#x27;</span><br>  <span class="hljs-keyword">const</span> <span class="hljs-built_in">width</span> = v.<span class="hljs-property">videoWidth</span><br>  <span class="hljs-keyword">const</span> <span class="hljs-built_in">height</span> = v.<span class="hljs-property">videoHeight</span><br><br>  <span class="hljs-keyword">const</span> canvas = window.<span class="hljs-property">canvas</span> = document.<span class="hljs-property">createElement</span>(<span class="hljs-string">&#x27;canvas&#x27;</span>)<br>  canvas.<span class="hljs-property">width</span> = <span class="hljs-built_in">width</span><br>  canvas.<span class="hljs-property">height</span> = <span class="hljs-built_in">height</span><br><br>  <span class="hljs-keyword">const</span> ctx = canvas.<span class="hljs-property">getContext</span>(<span class="hljs-string">&#x27;2d&#x27;</span>)<br><br>  ctx.<span class="hljs-property">drawImage</span>(v, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-built_in">width</span>, <span class="hljs-built_in">height</span>)<br><br>  ctx.<span class="hljs-property">rotate</span>(<span class="hljs-number">-16</span> * Math.<span class="hljs-property">PI</span> / <span class="hljs-number">180</span>)<br>  ctx.<span class="hljs-property">font</span> = <span class="hljs-string">&#x27;100px 宋体&#x27;</span><br>  ctx.<span class="hljs-property">fillStyle</span> = <span class="hljs-string">&#x27;rgba(255, 255, 255, 1)&#x27;</span><br>  ctx.<span class="hljs-property">fillText</span>(<span class="hljs-string">&#x27;测试水印&#x27;</span>, <span class="hljs-number">100</span>, <span class="hljs-built_in">height</span> - <span class="hljs-number">200</span>)<br><br>  <span class="hljs-keyword">const</span> <span class="hljs-built_in">image</span> = canvas.<span class="hljs-property">toDataURL</span>(<span class="hljs-string">&#x27;image/png&#x27;</span>)<br>  <span class="hljs-variable">this</span>.<span class="hljs-property">captureImg1</span> = <span class="hljs-built_in">image</span><br>&#125;<br></code></pre></td></tr></table></figure>
 
 <p>效果如下：</p>
 <p><img src="/img/Snip20210831_72.png" srcset="/img/loading.gif" lazyload></p>
@@ -289,7 +306,7 @@
 <h3 id="主要实现代码-1"><a href="#主要实现代码-1" class="headerlink" title="主要实现代码"></a>主要实现代码</h3><p>具体可见 <a target="_blank" rel="noopener" href="https://github.com/liyoro/vue-skill">代码</a></p>
 <figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs elixir">&lt;EasyPlayer<br>  ref=<span class="hljs-string">&quot;video2&quot;</span><br>  class=<span class="hljs-string">&quot;video-view&quot;</span><br>  <span class="hljs-symbol">:video-url=<span class="hljs-string">&quot;url&quot;</span></span><br>  <span class="hljs-symbol">:stretch=<span class="hljs-string">&quot;true&quot;</span></span><br>  live<br>  autoplay<br>  fluent /&gt;<br></code></pre></td></tr></table></figure>
 
-<figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs processing">captureClick2() &#123;<br>  <span class="hljs-keyword">const</span> <span class="hljs-built_in">width</span> = <span class="hljs-keyword">this</span>.player2.videoWidth<br>  <span class="hljs-keyword">const</span> <span class="hljs-built_in">height</span> = <span class="hljs-keyword">this</span>.player2.videoHeight<br><br>  <span class="hljs-keyword">const</span> canvas = window.canvas = document.createElement(<span class="hljs-string">&#x27;canvas&#x27;</span>)<br>  canvas.<span class="hljs-built_in">width</span> = <span class="hljs-built_in">width</span><br>  canvas.<span class="hljs-built_in">height</span> = <span class="hljs-built_in">height</span><br><br>  <span class="hljs-keyword">const</span> ctx = canvas.getContext(<span class="hljs-string">&#x27;2d&#x27;</span>)<br><br>  ctx.drawImage(<span class="hljs-keyword">this</span>.player2, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-built_in">width</span>, <span class="hljs-built_in">height</span>)<br><br>  ctx.<span class="hljs-built_in">rotate</span>(<span class="hljs-number">-16</span> * Math.<span class="hljs-literal">PI</span> / <span class="hljs-number">180</span>)<br>  ctx.font = <span class="hljs-string">&#x27;100px 宋体&#x27;</span><br>  ctx.fillStyle = <span class="hljs-string">&#x27;rgba(255, 255, 255, 1)&#x27;</span><br>  ctx.fillText(<span class="hljs-string">&#x27;测试水印&#x27;</span>, <span class="hljs-number">100</span>, <span class="hljs-built_in">height</span> - <span class="hljs-number">200</span>)<br><br>  <span class="hljs-keyword">const</span> <span class="hljs-built_in">image</span> = canvas.toDataURL(<span class="hljs-string">&#x27;image/png&#x27;</span>)<br>  <span class="hljs-keyword">this</span>.captureImg2 = <span class="hljs-built_in">image</span><br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs processing"><span class="hljs-title function_">captureClick2</span>() &#123;<br>  <span class="hljs-keyword">const</span> <span class="hljs-built_in">width</span> = <span class="hljs-variable">this</span>.<span class="hljs-property">player2</span>.<span class="hljs-property">videoWidth</span><br>  <span class="hljs-keyword">const</span> <span class="hljs-built_in">height</span> = <span class="hljs-variable">this</span>.<span class="hljs-property">player2</span>.<span class="hljs-property">videoHeight</span><br><br>  <span class="hljs-keyword">const</span> canvas = window.<span class="hljs-property">canvas</span> = document.<span class="hljs-property">createElement</span>(<span class="hljs-string">&#x27;canvas&#x27;</span>)<br>  canvas.<span class="hljs-property">width</span> = <span class="hljs-built_in">width</span><br>  canvas.<span class="hljs-property">height</span> = <span class="hljs-built_in">height</span><br><br>  <span class="hljs-keyword">const</span> ctx = canvas.<span class="hljs-property">getContext</span>(<span class="hljs-string">&#x27;2d&#x27;</span>)<br><br>  ctx.<span class="hljs-property">drawImage</span>(<span class="hljs-variable">this</span>.<span class="hljs-property">player2</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-built_in">width</span>, <span class="hljs-built_in">height</span>)<br><br>  ctx.<span class="hljs-property">rotate</span>(<span class="hljs-number">-16</span> * Math.<span class="hljs-property">PI</span> / <span class="hljs-number">180</span>)<br>  ctx.<span class="hljs-property">font</span> = <span class="hljs-string">&#x27;100px 宋体&#x27;</span><br>  ctx.<span class="hljs-property">fillStyle</span> = <span class="hljs-string">&#x27;rgba(255, 255, 255, 1)&#x27;</span><br>  ctx.<span class="hljs-property">fillText</span>(<span class="hljs-string">&#x27;测试水印&#x27;</span>, <span class="hljs-number">100</span>, <span class="hljs-built_in">height</span> - <span class="hljs-number">200</span>)<br><br>  <span class="hljs-keyword">const</span> <span class="hljs-built_in">image</span> = canvas.<span class="hljs-property">toDataURL</span>(<span class="hljs-string">&#x27;image/png&#x27;</span>)<br>  <span class="hljs-variable">this</span>.<span class="hljs-property">captureImg2</span> = <span class="hljs-built_in">image</span><br>&#125;<br></code></pre></td></tr></table></figure>
 
 <p>效果如下：</p>
 <p><img src="/img/Snip20210831_73.png" srcset="/img/loading.gif" lazyload></p>
@@ -321,11 +338,11 @@
                     
                       <a class="hover-with-bg" href="/tags/video/">video</a>
                     
-                      <a class="hover-with-bg" href="/tags/%E8%A7%86%E9%A2%91%E6%92%AD%E6%94%BE/">视频播放</a>
-                    
                       <a class="hover-with-bg" href="/tags/Aliplayer/">Aliplayer</a>
                     
                       <a class="hover-with-bg" href="/tags/EasyPlayer-js/">EasyPlayer.js</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E8%A7%86%E9%A2%91%E6%92%AD%E6%94%BE/">视频播放</a>
                     
                   </div>
                 
@@ -386,7 +403,7 @@
     
 
     
-      <a id="scroll-top-button" href="#" role="button">
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
         <i class="iconfont icon-arrowup" aria-hidden="true"></i>
       </a>
     
@@ -457,8 +474,8 @@
 
   <!-- SCRIPTS -->
   
-  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
 
   <script>
     NProgress.configure({"showSpinner":false,"trickleSpeed":100})
@@ -469,12 +486,16 @@
   </script>
 
 
-<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
-<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
 <script  src="/js/events.js" ></script>
 <script  src="/js/plugins.js" ></script>
 
 <!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
 
 
   
@@ -487,23 +508,18 @@
 
 
 
-  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.3/dist/tocbot.min.js" ></script>
-
-
-
-  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
-
-
-
-  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.1/anchor.min.js" ></script>
-
-
-
-  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
-
-
-
-  <script  src="/js/local-search.js" ></script>
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
 
 
 
@@ -512,13 +528,13 @@
 
 
 
-  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12/lib/typed.min.js" ></script>
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
   <script>
     (function (window, document) {
       var typing = Fluid.plugins.typing;
       var title = document.getElementById('subtitle').title;
       
-      typing(title)
+        typing(title);
       
     })(window, document);
   </script>

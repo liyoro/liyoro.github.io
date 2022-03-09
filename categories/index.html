@@ -1,7 +1,7 @@
 
 
 <!DOCTYPE html>
-<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+<html lang="zh-CN" data-default-color-scheme=auto>
 
 
 
@@ -9,18 +9,26 @@
   <meta charset="UTF-8">
   <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
   <link rel="icon" href="/img/favicon.png">
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="description" content="">
   <meta name="author" content="liyoro">
   <meta name="keywords" content="前端,Vue,数据可视化">
   
+    <meta property="og:type" content="website">
+<meta property="og:title" content="分类">
+<meta property="og:url" content="https://liyoro.com/categories/index.html">
+<meta property="og:site_name" content="大头">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="liyoro">
+<meta property="article:tag" content="前端,Vue,数据可视化">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
   <title>分类 - 大头</title>
 
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
 
 
@@ -44,19 +52,20 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"liyoro.com","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"04CJAnEXCVfX1bWMJMbPyEoA-gzGzoHsz","app_key":"SWmIhOX3zEAuJ2D9qLEJQugF","server_url":null}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"liyoro.com","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"04CJAnEXCVfX1bWMJMbPyEoA-gzGzoHsz","app_key":"SWmIhOX3zEAuJ2D9qLEJQugF","server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.4.0"></head>
+<meta name="generator" content="Hexo 5.4.1"></head>
 
 
 <body>
   <header style="height: 60vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand"
-       href="/">&nbsp;<strong>liyoro</strong>&nbsp;</a>
+    <a class="navbar-brand" href="/">
+      <strong>liyoro</strong>
+    </a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent"
@@ -142,13 +151,14 @@
         
         
           <li class="nav-item" id="search-btn">
-            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
-                class="iconfont icon-search"></i>&nbsp;</a>
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
           </li>
         
         
           <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" target="_self">&nbsp;<i
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
                 class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
           </li>
         
@@ -191,12 +201,114 @@
 
 
 
-
-
 <div class="category-list">
   
   
   
+  
+    
+    
+    <div class="category row">
+      <a
+        class="category-item collapsed list-group-item category-item-action col-10 col-md-11"
+        id="heading-9abfe4a03928eb88a75a5cd95822dfef" role="tab" data-toggle="collapse" href="#collapse-9abfe4a03928eb88a75a5cd95822dfef"
+        aria-expanded="false"
+      >
+        前端
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      <a href="/categories/%E5%89%8D%E7%AB%AF/" class="category-count col-2 col-md-1">
+        <i class="iconfont icon-articles"></i>
+        <span>15</span>
+      </a>
+      <div class="category-collapse collapse" id="collapse-9abfe4a03928eb88a75a5cd95822dfef" role="tabpanel" aria-labelledby="heading-9abfe4a03928eb88a75a5cd95822dfef">
+        
+        
+          
+  <div class="category-post-list">
+    
+    
+      
+      
+        <a href="/2022/03/08/vue2%E9%A1%B9%E7%9B%AE%E4%B8%AD%E5%B0%81%E8%A3%85echarts%E5%9C%B0%E5%9B%BE%E6%AF%94%E8%BE%83%E4%BC%98%E9%9B%85%E7%9A%84%E6%96%B9%E5%BC%8F%20/" class="list-group-item list-group-item-action">
+          <span class="category-post">vue2项目中封装echarts地图比较优雅的方式</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2022/01/22/%E8%AE%B0%E4%B8%80%E6%AC%A1%E6%B5%8F%E8%A7%88%E5%99%A8SameSite%E7%AD%96%E7%95%A5%E6%9B%B4%E6%96%B0%EF%BC%8C%E5%AF%BC%E8%87%B4%E6%8E%A5%E5%8F%A3%20Failed%20to%20load%20response%20data%20%E7%9A%84%E8%A7%A3%E5%86%B3%E8%BF%87%E7%A8%8B/" class="list-group-item list-group-item-action">
+          <span class="category-post">记一次浏览器SameSite策略更新，导致接口 Failed to load response data 的解决过程</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2022/01/10/video-time-slider%EF%BC%8C%E7%94%A8%E4%BA%8EIVR%E8%A7%86%E9%A2%91%E5%9B%9E%E6%92%AD%E7%9A%84%E6%97%B6%E9%97%B4%E9%80%89%E6%8B%A9%E6%8F%92%E4%BB%B6/" class="list-group-item list-group-item-action">
+          <span class="category-post">video-time-slider，用于IVR视频回播的时间选择插件</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2021/12/22/EasyPlayer.js%E4%BF%AE%E6%94%B9%E9%BB%98%E8%AE%A4%E7%9A%84%E8%AF%B7%E6%B1%82%E6%96%B9%E5%BC%8F%E5%AE%9E%E6%93%8D%E8%BF%87%E7%A8%8B/" class="list-group-item list-group-item-action">
+          <span class="category-post">EasyPlayer.js修改默认的请求方式实操过程</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2020/05/22/%E5%89%8D%E7%AB%AF%E8%B0%83%E8%AF%95%EF%BC%8C%E6%9C%AC%E5%9C%B0%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%8E%A8%E8%8D%90/" class="list-group-item list-group-item-action">
+          <span class="category-post">前端调试，本地服务器推荐</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2020/05/21/Mac%E4%BD%BF%E7%94%A8Nginx/" class="list-group-item list-group-item-action">
+          <span class="category-post">Mac使用Nginx</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2020/05/20/Mac%E8%87%AA%E5%B8%A6Apache%E4%BD%BF%E7%94%A8/" class="list-group-item list-group-item-action">
+          <span class="category-post">Mac自带Apache使用</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2020/05/19/%E5%A6%82%E4%BD%95%E5%BF%AB%E9%80%9F%E5%BC%80%E5%8F%91%E4%B8%80%E4%B8%AA%E5%93%8D%E5%BA%94%E5%BC%8F%E7%A7%BB%E5%8A%A8%E7%AB%AF%E9%A1%B5%E9%9D%A2/" class="list-group-item list-group-item-action">
+          <span class="category-post">如何快速开发一个响应式移动端页面</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2020/05/14/%E5%89%8D%E7%AB%AF%E5%A4%A7%E5%B1%8F%E5%B1%95%E7%A4%BA%E6%A1%86%E6%9E%B6%E6%90%AD%E5%BB%BA%EF%BC%88%E5%9B%9B%EF%BC%89/" class="list-group-item list-group-item-action">
+          <span class="category-post">前端大屏展示框架搭建（四）</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2020/05/13/%E5%89%8D%E7%AB%AF%E5%A4%A7%E5%B1%8F%E5%B1%95%E7%A4%BA%E6%A1%86%E6%9E%B6%E6%90%AD%E5%BB%BA%EF%BC%88%E4%B8%89%EF%BC%89/" class="list-group-item list-group-item-action">
+          <span class="category-post">前端大屏展示框架搭建（三）</span>
+        </a>
+      
+    
+      
+      
+        <a href="/categories/%E5%89%8D%E7%AB%AF/" class="list-group-item list-group-item-action">
+          <span class="category-post">More...</span>
+        </a>
+        
+  </div>
+
+        
+      </div>
+    </div>
   
     
     
@@ -213,12 +325,11 @@
         <i class="iconfont icon-articles"></i>
         <span>12</span>
       </a>
-      <div class="category-collapse">
+      <div class="category-collapse collapse" id="collapse-2d8ec58babcec05d3fe8f712968de749" role="tabpanel" aria-labelledby="heading-2d8ec58babcec05d3fe8f712968de749">
         
         
           
-  <div id="collapse-2d8ec58babcec05d3fe8f712968de749" class="collapse in" role="tabpanel"
-       aria-labelledby="heading-2d8ec58babcec05d3fe8f712968de749">
+  <div class="category-post-list">
     
     
       
@@ -308,111 +419,6 @@
     <div class="category row">
       <a
         class="category-item collapsed list-group-item category-item-action col-10 col-md-11"
-        id="heading-9abfe4a03928eb88a75a5cd95822dfef" role="tab" data-toggle="collapse" href="#collapse-9abfe4a03928eb88a75a5cd95822dfef"
-        aria-expanded="false"
-      >
-        前端
-        <i class="iconfont icon-arrowright"></i>
-      </a>
-      <a href="/categories/%E5%89%8D%E7%AB%AF/" class="category-count col-2 col-md-1">
-        <i class="iconfont icon-articles"></i>
-        <span>11</span>
-      </a>
-      <div class="category-collapse">
-        
-        
-          
-  <div id="collapse-9abfe4a03928eb88a75a5cd95822dfef" class="collapse in" role="tabpanel"
-       aria-labelledby="heading-9abfe4a03928eb88a75a5cd95822dfef">
-    
-    
-      
-      
-        <a href="/2020/05/22/%E5%89%8D%E7%AB%AF%E8%B0%83%E8%AF%95%EF%BC%8C%E6%9C%AC%E5%9C%B0%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%8E%A8%E8%8D%90/" class="list-group-item list-group-item-action">
-          <span class="category-post">前端调试，本地服务器推荐</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/05/21/Mac%E4%BD%BF%E7%94%A8Nginx/" class="list-group-item list-group-item-action">
-          <span class="category-post">Mac使用Nginx</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/05/20/Mac%E8%87%AA%E5%B8%A6Apache%E4%BD%BF%E7%94%A8/" class="list-group-item list-group-item-action">
-          <span class="category-post">Mac自带Apache使用</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/05/19/%E5%A6%82%E4%BD%95%E5%BF%AB%E9%80%9F%E5%BC%80%E5%8F%91%E4%B8%80%E4%B8%AA%E5%93%8D%E5%BA%94%E5%BC%8F%E7%A7%BB%E5%8A%A8%E7%AB%AF%E9%A1%B5%E9%9D%A2/" class="list-group-item list-group-item-action">
-          <span class="category-post">如何快速开发一个响应式移动端页面</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/05/14/%E5%89%8D%E7%AB%AF%E5%A4%A7%E5%B1%8F%E5%B1%95%E7%A4%BA%E6%A1%86%E6%9E%B6%E6%90%AD%E5%BB%BA%EF%BC%88%E5%9B%9B%EF%BC%89/" class="list-group-item list-group-item-action">
-          <span class="category-post">前端大屏展示框架搭建（四）</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/05/13/%E5%89%8D%E7%AB%AF%E5%A4%A7%E5%B1%8F%E5%B1%95%E7%A4%BA%E6%A1%86%E6%9E%B6%E6%90%AD%E5%BB%BA%EF%BC%88%E4%B8%89%EF%BC%89/" class="list-group-item list-group-item-action">
-          <span class="category-post">前端大屏展示框架搭建（三）</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/05/12/%E5%89%8D%E7%AB%AF%E5%A4%A7%E5%B1%8F%E5%B1%95%E7%A4%BA%E6%A1%86%E6%9E%B6%E6%90%AD%E5%BB%BA%EF%BC%88%E4%BA%8C%EF%BC%89/" class="list-group-item list-group-item-action">
-          <span class="category-post">前端大屏展示框架搭建（二）</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/05/11/%E5%89%8D%E7%AB%AF%E5%A4%A7%E5%B1%8F%E5%B1%95%E7%A4%BA%E6%A1%86%E6%9E%B6%E6%90%AD%E5%BB%BA%EF%BC%88%E4%B8%80%EF%BC%89/" class="list-group-item list-group-item-action">
-          <span class="category-post">前端大屏展示框架搭建（一）</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/04/11/PageSpeed%E7%BD%91%E9%A1%B5%E6%80%A7%E8%83%BD%E8%AF%84%E4%BC%B0%E4%BC%98%E5%8C%96%E5%B7%A5%E5%85%B7/" class="list-group-item list-group-item-action">
-          <span class="category-post">PageSpeed网页性能评估优化工具</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/04/11/Lighthouse%E7%BD%91%E9%A1%B5%E6%80%A7%E8%83%BD%E8%AF%84%E4%BC%B0%E5%B7%A5%E5%85%B7/" class="list-group-item list-group-item-action">
-          <span class="category-post">Lighthouse网页性能评估工具</span>
-        </a>
-      
-    
-      
-      
-        <a href="/categories/%E5%89%8D%E7%AB%AF/" class="list-group-item list-group-item-action">
-          <span class="category-post">More...</span>
-        </a>
-        
-  </div>
-
-        
-      </div>
-    </div>
-  
-    
-    
-    <div class="category row">
-      <a
-        class="category-item collapsed list-group-item category-item-action col-10 col-md-11"
         id="heading-20dce2c6fa909a5cd62526615fe2788a" role="tab" data-toggle="collapse" href="#collapse-20dce2c6fa909a5cd62526615fe2788a"
         aria-expanded="false"
       >
@@ -423,12 +429,11 @@
         <i class="iconfont icon-articles"></i>
         <span>3</span>
       </a>
-      <div class="category-collapse">
+      <div class="category-collapse collapse" id="collapse-20dce2c6fa909a5cd62526615fe2788a" role="tabpanel" aria-labelledby="heading-20dce2c6fa909a5cd62526615fe2788a">
         
         
           
-  <div id="collapse-20dce2c6fa909a5cd62526615fe2788a" class="collapse in" role="tabpanel"
-       aria-labelledby="heading-20dce2c6fa909a5cd62526615fe2788a">
+  <div class="category-post-list">
     
     
       
@@ -473,12 +478,11 @@
         <i class="iconfont icon-articles"></i>
         <span>3</span>
       </a>
-      <div class="category-collapse">
+      <div class="category-collapse collapse" id="collapse-fd8d5a45e47075e7a8e848e7ee25de61" role="tabpanel" aria-labelledby="heading-fd8d5a45e47075e7a8e848e7ee25de61">
         
         
           
-  <div id="collapse-fd8d5a45e47075e7a8e848e7ee25de61" class="collapse in" role="tabpanel"
-       aria-labelledby="heading-fd8d5a45e47075e7a8e848e7ee25de61">
+  <div class="category-post-list">
     
     
       
@@ -523,12 +527,11 @@
         <i class="iconfont icon-articles"></i>
         <span>2</span>
       </a>
-      <div class="category-collapse">
+      <div class="category-collapse collapse" id="collapse-c31f48f84ef207e66a03c015a7243b43" role="tabpanel" aria-labelledby="heading-c31f48f84ef207e66a03c015a7243b43">
         
         
           
-  <div id="collapse-c31f48f84ef207e66a03c015a7243b43" class="collapse in" role="tabpanel"
-       aria-labelledby="heading-c31f48f84ef207e66a03c015a7243b43">
+  <div class="category-post-list">
     
     
       
@@ -566,12 +569,11 @@
         <i class="iconfont icon-articles"></i>
         <span>2</span>
       </a>
-      <div class="category-collapse">
+      <div class="category-collapse collapse" id="collapse-92ce826772dd138cdcbd6cbc6d5b29c4" role="tabpanel" aria-labelledby="heading-92ce826772dd138cdcbd6cbc6d5b29c4">
         
         
           
-  <div id="collapse-92ce826772dd138cdcbd6cbc6d5b29c4" class="collapse in" role="tabpanel"
-       aria-labelledby="heading-92ce826772dd138cdcbd6cbc6d5b29c4">
+  <div class="category-post-list">
     
     
       
@@ -599,49 +601,6 @@
     <div class="category row">
       <a
         class="category-item collapsed list-group-item category-item-action col-10 col-md-11"
-        id="heading-87483408cfa62006f530473e57323a26" role="tab" data-toggle="collapse" href="#collapse-87483408cfa62006f530473e57323a26"
-        aria-expanded="false"
-      >
-        旅行
-        <i class="iconfont icon-arrowright"></i>
-      </a>
-      <a href="/categories/%E6%97%85%E8%A1%8C/" class="category-count col-2 col-md-1">
-        <i class="iconfont icon-articles"></i>
-        <span>2</span>
-      </a>
-      <div class="category-collapse">
-        
-        
-          
-  <div id="collapse-87483408cfa62006f530473e57323a26" class="collapse in" role="tabpanel"
-       aria-labelledby="heading-87483408cfa62006f530473e57323a26">
-    
-    
-      
-      
-        <a href="/2019/05/01/%E6%83%A0%E5%B7%9E%E5%A4%A7%E5%8D%97%E5%B1%B1/" class="list-group-item list-group-item-action">
-          <span class="category-post">惠州大南山</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2014/11/09/%E6%B1%9F%E8%A5%BF%E6%AD%A6%E5%8A%9F%E5%B1%B1/" class="list-group-item list-group-item-action">
-          <span class="category-post">江西武功山</span>
-        </a>
-      
-    
-  </div>
-
-        
-      </div>
-    </div>
-  
-    
-    
-    <div class="category row">
-      <a
-        class="category-item collapsed list-group-item category-item-action col-10 col-md-11"
         id="heading-cb7bed93c345e92e7c181433285a658f" role="tab" data-toggle="collapse" href="#collapse-cb7bed93c345e92e7c181433285a658f"
         aria-expanded="false"
       >
@@ -652,12 +611,11 @@
         <i class="iconfont icon-articles"></i>
         <span>2</span>
       </a>
-      <div class="category-collapse">
+      <div class="category-collapse collapse" id="collapse-cb7bed93c345e92e7c181433285a658f" role="tabpanel" aria-labelledby="heading-cb7bed93c345e92e7c181433285a658f">
         
         
           
-  <div id="collapse-cb7bed93c345e92e7c181433285a658f" class="collapse in" role="tabpanel"
-       aria-labelledby="heading-cb7bed93c345e92e7c181433285a658f">
+  <div class="category-post-list">
     
     
       
@@ -685,64 +643,34 @@
     <div class="category row">
       <a
         class="category-item collapsed list-group-item category-item-action col-10 col-md-11"
-        id="heading-c8922754fd0f2ba821918f4e69a04a71" role="tab" data-toggle="collapse" href="#collapse-c8922754fd0f2ba821918f4e69a04a71"
+        id="heading-87483408cfa62006f530473e57323a26" role="tab" data-toggle="collapse" href="#collapse-87483408cfa62006f530473e57323a26"
         aria-expanded="false"
       >
-        美食
+        旅行
         <i class="iconfont icon-arrowright"></i>
       </a>
-      <a href="/categories/%E7%BE%8E%E9%A3%9F/" class="category-count col-2 col-md-1">
+      <a href="/categories/%E6%97%85%E8%A1%8C/" class="category-count col-2 col-md-1">
         <i class="iconfont icon-articles"></i>
-        <span>1</span>
+        <span>2</span>
       </a>
-      <div class="category-collapse">
+      <div class="category-collapse collapse" id="collapse-87483408cfa62006f530473e57323a26" role="tabpanel" aria-labelledby="heading-87483408cfa62006f530473e57323a26">
         
         
           
-  <div id="collapse-c8922754fd0f2ba821918f4e69a04a71" class="collapse in" role="tabpanel"
-       aria-labelledby="heading-c8922754fd0f2ba821918f4e69a04a71">
+  <div class="category-post-list">
     
     
       
       
-        <a href="/2019/03/30/%E5%B9%BF%E5%B7%9E%E5%A5%BD%E5%90%83%E9%85%B8%E8%8F%9C%E9%B1%BC%E6%8E%92%E8%A1%8C%E6%A6%9C/" class="list-group-item list-group-item-action">
-          <span class="category-post">广州好吃酸菜鱼排行榜</span>
+        <a href="/2019/05/01/%E6%83%A0%E5%B7%9E%E5%A4%A7%E5%8D%97%E5%B1%B1/" class="list-group-item list-group-item-action">
+          <span class="category-post">惠州大南山</span>
         </a>
       
     
-  </div>
-
-        
-      </div>
-    </div>
-  
-    
-    
-    <div class="category row">
-      <a
-        class="category-item collapsed list-group-item category-item-action col-10 col-md-11"
-        id="heading-c84908d7c88b10fa24487ff44bfc4a26" role="tab" data-toggle="collapse" href="#collapse-c84908d7c88b10fa24487ff44bfc4a26"
-        aria-expanded="false"
-      >
-        Echarts
-        <i class="iconfont icon-arrowright"></i>
-      </a>
-      <a href="/categories/Echarts/" class="category-count col-2 col-md-1">
-        <i class="iconfont icon-articles"></i>
-        <span>1</span>
-      </a>
-      <div class="category-collapse">
-        
-        
-          
-  <div id="collapse-c84908d7c88b10fa24487ff44bfc4a26" class="collapse in" role="tabpanel"
-       aria-labelledby="heading-c84908d7c88b10fa24487ff44bfc4a26">
-    
-    
       
       
-        <a href="/2020/05/28/vue%E9%A1%B9%E7%9B%AE%E4%B8%AD%E5%B0%81%E8%A3%85echarts%E7%9A%84%E6%AF%94%E8%BE%83%E4%BC%98%E9%9B%85%E7%9A%84%E6%96%B9%E5%BC%8F/" class="list-group-item list-group-item-action">
-          <span class="category-post">vue项目中封装echarts的比较优雅的方式</span>
+        <a href="/2014/11/09/%E6%B1%9F%E8%A5%BF%E6%AD%A6%E5%8A%9F%E5%B1%B1/" class="list-group-item list-group-item-action">
+          <span class="category-post">江西武功山</span>
         </a>
       
     
@@ -767,12 +695,11 @@
         <i class="iconfont icon-articles"></i>
         <span>1</span>
       </a>
-      <div class="category-collapse">
+      <div class="category-collapse collapse" id="collapse-9abff3af86a747046470e58295a0ea22" role="tabpanel" aria-labelledby="heading-9abff3af86a747046470e58295a0ea22">
         
         
           
-  <div id="collapse-9abff3af86a747046470e58295a0ea22" class="collapse in" role="tabpanel"
-       aria-labelledby="heading-9abff3af86a747046470e58295a0ea22">
+  <div class="category-post-list">
     
     
       
@@ -793,28 +720,62 @@
     <div class="category row">
       <a
         class="category-item collapsed list-group-item category-item-action col-10 col-md-11"
-        id="heading-b599979e9a40823363451aeaadc0723f" role="tab" data-toggle="collapse" href="#collapse-b599979e9a40823363451aeaadc0723f"
+        id="heading-c84908d7c88b10fa24487ff44bfc4a26" role="tab" data-toggle="collapse" href="#collapse-c84908d7c88b10fa24487ff44bfc4a26"
         aria-expanded="false"
       >
-        动画
+        Echarts
         <i class="iconfont icon-arrowright"></i>
       </a>
-      <a href="/categories/%E5%8A%A8%E7%94%BB/" class="category-count col-2 col-md-1">
+      <a href="/categories/Echarts/" class="category-count col-2 col-md-1">
         <i class="iconfont icon-articles"></i>
         <span>1</span>
       </a>
-      <div class="category-collapse">
+      <div class="category-collapse collapse" id="collapse-c84908d7c88b10fa24487ff44bfc4a26" role="tabpanel" aria-labelledby="heading-c84908d7c88b10fa24487ff44bfc4a26">
         
         
           
-  <div id="collapse-b599979e9a40823363451aeaadc0723f" class="collapse in" role="tabpanel"
-       aria-labelledby="heading-b599979e9a40823363451aeaadc0723f">
+  <div class="category-post-list">
     
     
       
       
-        <a href="/2020/07/01/%E8%B7%A8%E5%B9%B3%E5%8F%B0%E9%85%B7%E7%82%AB%E5%8A%A8%E7%94%BB%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%A1%88%E6%8E%A8%E8%8D%90%EF%BC%88iOS,Android,Web%EF%BC%89/" class="list-group-item list-group-item-action">
-          <span class="category-post">跨平台酷炫动画实现方案推荐（iOS,Android,Web）</span>
+        <a href="/2020/05/28/vue%E9%A1%B9%E7%9B%AE%E4%B8%AD%E5%B0%81%E8%A3%85echarts%E7%9A%84%E6%AF%94%E8%BE%83%E4%BC%98%E9%9B%85%E7%9A%84%E6%96%B9%E5%BC%8F/" class="list-group-item list-group-item-action">
+          <span class="category-post">vue项目中封装echarts的比较优雅的方式</span>
+        </a>
+      
+    
+  </div>
+
+        
+      </div>
+    </div>
+  
+    
+    
+    <div class="category row">
+      <a
+        class="category-item collapsed list-group-item category-item-action col-10 col-md-11"
+        id="heading-c8922754fd0f2ba821918f4e69a04a71" role="tab" data-toggle="collapse" href="#collapse-c8922754fd0f2ba821918f4e69a04a71"
+        aria-expanded="false"
+      >
+        美食
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      <a href="/categories/%E7%BE%8E%E9%A3%9F/" class="category-count col-2 col-md-1">
+        <i class="iconfont icon-articles"></i>
+        <span>1</span>
+      </a>
+      <div class="category-collapse collapse" id="collapse-c8922754fd0f2ba821918f4e69a04a71" role="tabpanel" aria-labelledby="heading-c8922754fd0f2ba821918f4e69a04a71">
+        
+        
+          
+  <div class="category-post-list">
+    
+    
+      
+      
+        <a href="/2019/03/30/%E5%B9%BF%E5%B7%9E%E5%A5%BD%E5%90%83%E9%85%B8%E8%8F%9C%E9%B1%BC%E6%8E%92%E8%A1%8C%E6%A6%9C/" class="list-group-item list-group-item-action">
+          <span class="category-post">广州好吃酸菜鱼排行榜</span>
         </a>
       
     
@@ -839,18 +800,52 @@
         <i class="iconfont icon-articles"></i>
         <span>1</span>
       </a>
-      <div class="category-collapse">
+      <div class="category-collapse collapse" id="collapse-1748c0644a50090814d3e170723ccc5c" role="tabpanel" aria-labelledby="heading-1748c0644a50090814d3e170723ccc5c">
         
         
           
-  <div id="collapse-1748c0644a50090814d3e170723ccc5c" class="collapse in" role="tabpanel"
-       aria-labelledby="heading-1748c0644a50090814d3e170723ccc5c">
+  <div class="category-post-list">
     
     
       
       
         <a href="/2020/07/06/%E6%88%91%E4%BD%BF%E7%94%A8%E7%9A%84Mac%E8%BD%AF%E4%BB%B6%E5%8F%8A%E5%B7%A5%E5%85%B7/" class="list-group-item list-group-item-action">
           <span class="category-post">我使用的Mac软件及工具</span>
+        </a>
+      
+    
+  </div>
+
+        
+      </div>
+    </div>
+  
+    
+    
+    <div class="category row">
+      <a
+        class="category-item collapsed list-group-item category-item-action col-10 col-md-11"
+        id="heading-b599979e9a40823363451aeaadc0723f" role="tab" data-toggle="collapse" href="#collapse-b599979e9a40823363451aeaadc0723f"
+        aria-expanded="false"
+      >
+        动画
+        <i class="iconfont icon-arrowright"></i>
+      </a>
+      <a href="/categories/%E5%8A%A8%E7%94%BB/" class="category-count col-2 col-md-1">
+        <i class="iconfont icon-articles"></i>
+        <span>1</span>
+      </a>
+      <div class="category-collapse collapse" id="collapse-b599979e9a40823363451aeaadc0723f" role="tabpanel" aria-labelledby="heading-b599979e9a40823363451aeaadc0723f">
+        
+        
+          
+  <div class="category-post-list">
+    
+    
+      
+      
+        <a href="/2020/07/01/%E8%B7%A8%E5%B9%B3%E5%8F%B0%E9%85%B7%E7%82%AB%E5%8A%A8%E7%94%BB%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%A1%88%E6%8E%A8%E8%8D%90%EF%BC%88iOS,Android,Web%EF%BC%89/" class="list-group-item list-group-item-action">
+          <span class="category-post">跨平台酷炫动画实现方案推荐（iOS,Android,Web）</span>
         </a>
       
     
@@ -870,7 +865,7 @@
     
 
     
-      <a id="scroll-top-button" href="#" role="button">
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
         <i class="iconfont icon-arrowup" aria-hidden="true"></i>
       </a>
     
@@ -941,8 +936,8 @@
 
   <!-- SCRIPTS -->
   
-  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
 
   <script>
     NProgress.configure({"showSpinner":false,"trickleSpeed":100})
@@ -953,12 +948,16 @@
   </script>
 
 
-<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
-<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
 <script  src="/js/events.js" ></script>
 <script  src="/js/plugins.js" ></script>
 
 <!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
 
 
   
@@ -974,29 +973,17 @@
 
 
 
-
-
-
-  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js" ></script>
-
-
-
-  <script  src="/js/local-search.js" ></script>
-
-
-
-
   <script defer src="/js/leancloud.js" ></script>
 
 
 
-  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12/lib/typed.min.js" ></script>
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
   <script>
     (function (window, document) {
       var typing = Fluid.plugins.typing;
       var title = document.getElementById('subtitle').title;
       
-      typing(title)
+        typing(title);
       
     })(window, document);
   </script>

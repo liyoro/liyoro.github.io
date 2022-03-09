@@ -1,0 +1,670 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="liyoro">
+  <meta name="keywords" content="前端,Vue,数据可视化">
+  
+    <meta name="description" content="video-time-slider，用于IVR视频回播的时间选择插件，为项目微信小程序制作，基于uni-app开发">
+<meta property="og:type" content="article">
+<meta property="og:title" content="video-time-slider，用于IVR视频回播的时间选择插件">
+<meta property="og:url" content="https://liyoro.com/2022/01/10/video-time-slider%EF%BC%8C%E7%94%A8%E4%BA%8EIVR%E8%A7%86%E9%A2%91%E5%9B%9E%E6%92%AD%E7%9A%84%E6%97%B6%E9%97%B4%E9%80%89%E6%8B%A9%E6%8F%92%E4%BB%B6/index.html">
+<meta property="og:site_name" content="大头">
+<meta property="og:description" content="video-time-slider，用于IVR视频回播的时间选择插件，为项目微信小程序制作，基于uni-app开发">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://liyoro.com/img/Snip20220107_10_min.png">
+<meta property="article:published_time" content="2022-01-10T09:02:22.000Z">
+<meta property="article:modified_time" content="2022-03-09T08:22:42.379Z">
+<meta property="article:author" content="liyoro">
+<meta property="article:tag" content="前端">
+<meta property="article:tag" content="video">
+<meta property="article:tag" content="视频播放">
+<meta property="article:tag" content="video-time-slider">
+<meta property="article:tag" content="uni-app">
+<meta property="article:tag" content="vue">
+<meta property="article:tag" content="小程序">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://liyoro.com/img/Snip20220107_10_min.png">
+  
+  
+  <title>video-time-slider，用于IVR视频回播的时间选择插件 - 大头</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+  
+<link rel="stylesheet" href="//at.alicdn.com/t/font_2758859_ounhe3bbaa.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"liyoro.com","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"04CJAnEXCVfX1bWMJMbPyEoA-gzGzoHsz","app_key":"SWmIhOX3zEAuJ2D9qLEJQugF","server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.1"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>liyoro</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="video-time-slider，用于IVR视频回播的时间选择插件">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2022-01-10 17:02" pubdate>
+        2022年1月10日 下午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      2.7k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      23 分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">video-time-slider，用于IVR视频回播的时间选择插件</h1>
+            
+            <div class="markdown-body">
+              <p>用于IVR视频回播的时间选择插件，刻度尺的实现参考了<a target="_blank" rel="noopener" href="https://ext.dcloud.net.cn/plugin?id=4567">vue语法css实现刻度尺</a>，为项目微信小程序制作。基于<code>uni-app</code>开发。目前没找到类似的插件，所以才动手实现了一个，是不是做视频的同行太少了，还是你们太低调了<del>。</del></p>
+<p>其实这个可以做成前端通用组件的，因为本人项目只在微信小程序使用此插件，就先做成小程序版本了，其它平台没试过，但是估计都能用。</p>
+<p>和 <a target="_blank" rel="noopener" href="https://uniapp.dcloud.io/component/live-player">live-player</a> 配合使用，播放视频挺流畅的。</p>
+<h2 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h2><ul>
+<li>24小时刻度尺，30分钟分隔</li>
+<li>有录像的时间段在刻度尺上标识（支持多个时间段）</li>
+<li>回传刻度无录像时间段时间值、刻度有录像时间段时间值（用于接口获取播放视频）</li>
+<li> 目前刻度尺返回值精确到秒</li>
+<li>自动回滚最后有录像时间段</li>
+</ul>
+<h2 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h2><p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/de7e1ec489e8491b9bfee654a9ccfe3f~tplv-k3u1fbpfcp-watermark.image" srcset="/img/loading.gif" lazyload alt="Snip20220107_10.png"></p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d68d773935734198b8d4a08397015dfe~tplv-k3u1fbpfcp-watermark.image" srcset="/img/loading.gif" lazyload alt="Snip20220107_10.gif"></p>
+<h2 id="有录像的时间段在刻度尺上标识（支持多个时间段）实现思路"><a href="#有录像的时间段在刻度尺上标识（支持多个时间段）实现思路" class="headerlink" title="有录像的时间段在刻度尺上标识（支持多个时间段）实现思路"></a>有录像的时间段在刻度尺上标识（支持多个时间段）实现思路</h2><p><em>（纯粹记录下，怕自己忘记了，肯定会忘记的）</em></p>
+<p>传参是以时间段的方式，每段录像的开始时间、结束时间为一组。以开始时间、结束时间在刻度尺上的位置，渲染一段带颜色的<code>view</code>，就能实现多个时间段在刻度尺上的标识。</p>
+<h3 id="代码实现思路"><a href="#代码实现思路" class="headerlink" title="代码实现思路"></a>代码实现思路</h3><p>处理渲染用的开始时间、结束时间数组，形成新的时间段，每个时间段由以下3个元素组成：</p>
+<h4 id="1、开始时间位置距（0点）距离，这里代号a"><a href="#1、开始时间位置距（0点）距离，这里代号a" class="headerlink" title="1、开始时间位置距（0点）距离，这里代号a"></a>1、开始时间位置距（0点）距离，这里代号a</h4><p>以0点为原点，找到开始时间在刻度尺上的位置，算法在<code>utils.js</code>文件的<code>dateToGrid</code>方法里。难点主要是24小时刻度尺上<code>px</code>长度和真实时间之间的转换。</p>
+<p><code>t1</code>算出开始时间的位置在刻度尺上占多少<code>px</code>格子，然后乘每个格子的宽度，就得到开始时间位置距原点距离<code>poi</code></p>
+<figure class="highlight ceylon"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><pre><code class="hljs ceylon"><span class="hljs-keyword">let</span> poi = t<span class="hljs-number">1</span> * <span class="hljs-keyword">this</span>.single<br></code></pre></td></tr></table></figure>
+
+<h4 id="2、时间段在刻度尺上的长度，这里代号b"><a href="#2、时间段在刻度尺上的长度，这里代号b" class="headerlink" title="2、时间段在刻度尺上的长度，这里代号b"></a>2、时间段在刻度尺上的长度，这里代号b</h4><p><code>t2</code>算出结束时间的位置在刻度尺上占多少<code>px</code>格子，<code>t2</code>减<code>t1</code>就是时间段在刻度尺上的长度<code>len</code>了。</p>
+<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs reasonml"><span class="hljs-keyword">let</span> len = (t2-t1).<span class="hljs-keyword">to</span><span class="hljs-constructor">Fixed(2)</span><span class="hljs-operator"> * </span>this.single<br></code></pre></td></tr></table></figure>
+
+<h4 id="3、结束时间距（0点）的距离，这里代号c"><a href="#3、结束时间距（0点）的距离，这里代号c" class="headerlink" title="3、结束时间距（0点）的距离，这里代号c"></a>3、结束时间距（0点）的距离，这里代号c</h4><p>这个有2种算法：</p>
+<ul>
+<li>1、开始时间位置<code>poi</code>加时间段长度<code>len</code></li>
+</ul>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs vim"><span class="hljs-keyword">let</span> <span class="hljs-keyword">left</span> = poi + <span class="hljs-built_in">len</span><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>2、计算结束时间位置距开始时间（0点）距离</li>
+</ul>
+<figure class="highlight ceylon"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ceylon"><span class="hljs-keyword">let</span> left = t<span class="hljs-number">2</span> * <span class="hljs-keyword">this</span>.single<br></code></pre></td></tr></table></figure>
+
+<h3 id="页面渲染"><a href="#页面渲染" class="headerlink" title="页面渲染"></a>页面渲染</h3><figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs maxima">&lt;<span class="hljs-built_in">view</span> class=<span class="hljs-string">&quot;scale-active&quot;</span>&gt;<br>    &lt;<span class="hljs-built_in">view</span> class=&#x27;<span class="hljs-built_in">scale</span>-active-<span class="hljs-built_in">time</span>&#x27; v-<span class="hljs-keyword">for</span>=<span class="hljs-string">&quot;(it, idt) in newActiveTime&quot;</span> :<span class="hljs-built_in">key</span>=<span class="hljs-string">&quot;idt&quot;</span> :<span class="hljs-built_in">style</span>=<span class="hljs-string">&quot;&#123;marginLeft: idt&gt;0?newActiveTime[idt][0]-newActiveTime[idt-1][2] + &#x27;px&#x27;:newActiveTime[idt][0] + &#x27;px&#x27;&#125;&quot;</span>&gt;<br>        &lt;<span class="hljs-built_in">view</span> class=<span class="hljs-string">&quot;scale-active-item&quot;</span> :<span class="hljs-built_in">style</span>=<span class="hljs-string">&quot;&#123;width: it[1] + &#x27;px&#x27;&#125;&quot;</span> /&gt;<br>    &lt;/<span class="hljs-built_in">view</span>&gt;<br>&lt;/<span class="hljs-built_in">view</span>&gt;<br></code></pre></td></tr></table></figure>
+
+<h4 id="scale-active-time"><a href="#scale-active-time" class="headerlink" title="scale-active-time"></a>scale-active-time</h4><p>主要是定位时间段开始渲染的位置。</p>
+<ul>
+<li>newActiveTime[idt][0] + ‘px’</li>
+</ul>
+<p>第一个时间段开始渲染的位置就是<code>a</code></p>
+<ul>
+<li>newActiveTime[idt][0]-newActiveTime[idt-1][2] + ‘px’</li>
+</ul>
+<p><code>&gt;0</code>的时间段，用下一个时间段的开始时间位置<code>a</code>减去上一个时间段结束时间位置<code>c</code>，就可以得到下一个时间段开始渲染的位置</p>
+<h4 id="scale-active-item"><a href="#scale-active-item" class="headerlink" title="scale-active-item"></a>scale-active-item</h4><p>每个时间段<code>view</code>的宽度<code>width</code></p>
+<p>以上，就是时间刻度尺上标识带录像时间段的思路了。</p>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><h3 id="页面引入"><a href="#页面引入" class="headerlink" title="页面引入"></a>页面引入</h3><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs applescript">import videoTimeSlider <span class="hljs-keyword">from</span> &#x27;@/uni_modules/video-<span class="hljs-built_in">time</span>-slider/components/video-<span class="hljs-built_in">time</span>-slider/video-<span class="hljs-built_in">time</span>-slider.vue&#x27;<br></code></pre></td></tr></table></figure>
+
+<h3 id="页面调用"><a href="#页面调用" class="headerlink" title="页面调用"></a>页面调用</h3><figure class="highlight scilab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs scilab">&lt;video-time-slider :curDate=<span class="hljs-string">&quot;2021-11-29&quot;</span><br>    :activeTime=<span class="hljs-string">&quot;[[&#x27;</span><span class="hljs-number">01</span>:<span class="hljs-number">12</span><span class="hljs-string">&#x27;, &#x27;</span><span class="hljs-number">03</span>:<span class="hljs-number">43</span><span class="hljs-string">&#x27;],[&#x27;</span><span class="hljs-number">05</span>:<span class="hljs-number">22</span><span class="hljs-string">&#x27;, &#x27;</span><span class="hljs-number">07</span>:<span class="hljs-number">33</span><span class="hljs-string">&#x27;],[&#x27;</span><span class="hljs-number">12</span>:<span class="hljs-number">02</span><span class="hljs-string">&#x27;, &#x27;</span><span class="hljs-number">17</span>:<span class="hljs-number">39</span><span class="hljs-string">&#x27;]]&quot;</span> <br>    @value=<span class="hljs-string">&quot;curValue&quot;</span><br>    @active-value=<span class="hljs-string">&quot;activeValue&quot;</span> /&gt;<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> &#123;<br>    <span class="hljs-attr">components</span>: &#123;<br>        videoTimeSlider<br>    &#125;,<br>    <span class="hljs-title function_">data</span>(<span class="hljs-params"></span>) &#123;<br>        <span class="hljs-keyword">return</span> &#123;<br>            <span class="hljs-attr">curVal</span>: <span class="hljs-string">&#x27;00:00&#x27;</span><br>        &#125;;<br>    &#125;,<br>    <span class="hljs-attr">methods</span>: &#123;<br>        <span class="hljs-title function_">curValue</span>(<span class="hljs-params">msg</span>) &#123;<br>            <span class="hljs-variable language_">this</span>.<span class="hljs-property">curVal</span> = msg<br>        &#125;,<br>        <span class="hljs-title function_">activeValue</span>(<span class="hljs-params">msg</span>) &#123;<br>            <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-number">666</span>, msg)<br>        &#125;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
+
+<p>具体看例子</p>
+<h2 id="参数说明"><a href="#参数说明" class="headerlink" title="参数说明"></a>参数说明</h2><table>
+<thead>
+<tr>
+<th align="center">参数名</th>
+<th align="center">默认值</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">curDate</td>
+<td align="center">2021-11-24</td>
+<td align="center">日期</td>
+</tr>
+<tr>
+<td align="center">activeTime</td>
+<td align="center">[]</td>
+<td align="center">时间段，标识可播放录像</td>
+</tr>
+<tr>
+<td align="center">styles</td>
+<td align="center">{…}</td>
+<td align="center">自定义卡尺样式</td>
+</tr>
+</tbody></table>
+<p>style选项</p>
+<table>
+<thead>
+<tr>
+<th align="center">参数名</th>
+<th align="center">默认值</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">line</td>
+<td align="center">#dbdbdb</td>
+<td align="center">刻度颜色</td>
+</tr>
+<tr>
+<td align="center">bginner</td>
+<td align="center">#fbfbfb</td>
+<td align="center">前景色颜色</td>
+</tr>
+<tr>
+<td align="center">bgoutside</td>
+<td align="center">#dbdbdb</td>
+<td align="center">背景色颜色</td>
+</tr>
+<tr>
+<td align="center">lineSelect</td>
+<td align="center">#ea3639</td>
+<td align="center">选中线颜色</td>
+</tr>
+<tr>
+<td align="center">fontColo</td>
+<td align="center">#404040</td>
+<td align="center">刻度数字颜色</td>
+</tr>
+<tr>
+<td align="center">fontSiz</td>
+<td align="center">12</td>
+<td align="center">字体大小</td>
+</tr>
+</tbody></table>
+<h2 id="方法说明"><a href="#方法说明" class="headerlink" title="方法说明"></a>方法说明</h2><table>
+<thead>
+<tr>
+<th align="center">事件名称</th>
+<th align="center">说明</th>
+<th align="center">返回参数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">@value</td>
+<td align="center">刻度无录像时间段时间值</td>
+<td align="center">时间值字符串</td>
+</tr>
+<tr>
+<td align="center">@active-value</td>
+<td align="center">刻度有录像时间段时间值</td>
+<td align="center">时间值字符串</td>
+</tr>
+</tbody></table>
+<h2 id="版本要求"><a href="#版本要求" class="headerlink" title="版本要求"></a>版本要求</h2><ul>
+<li>微信 App iOS 最低版本要求：6.5.21 。</li>
+<li>微信 App Android 最低版本要求：6.5.19。</li>
+<li>小程序基础库最低版本要求：1.7.0。</li>
+</ul>
+<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><p>如果微信开发者工具报以下错误</p>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs crmsh">TypeError: Cannot <span class="hljs-keyword">read</span> <span class="hljs-keyword">property</span><span class="hljs-title"> </span>&#x27;forceUpdate&#x27; of undefined<br></code></pre></td></tr></table></figure>
+
+<p><code>manifest.json</code>文件配置下微信小程序的AppID就行了，不用在意</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>已上插件市场 <a target="_blank" rel="noopener" href="https://ext.dcloud.net.cn/plugin?id=7142">video-time-slider</a></p>
+<p>市场上的代码可能会忘记更新，具体看代码了，github上的代码是最新的 <a target="_blank" rel="noopener" href="https://github.com/liyoro/video-time-slider">video-time-slider</a></p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E5%89%8D%E7%AB%AF/">前端</a>
+                    
+                      <a class="hover-with-bg" href="/tags/video/">video</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E8%A7%86%E9%A2%91%E6%92%AD%E6%94%BE/">视频播放</a>
+                    
+                      <a class="hover-with-bg" href="/tags/video-time-slider/">video-time-slider</a>
+                    
+                      <a class="hover-with-bg" href="/tags/uni-app/">uni-app</a>
+                    
+                      <a class="hover-with-bg" href="/tags/vue/">vue</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/">小程序</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/01/22/%E8%AE%B0%E4%B8%80%E6%AC%A1%E6%B5%8F%E8%A7%88%E5%99%A8SameSite%E7%AD%96%E7%95%A5%E6%9B%B4%E6%96%B0%EF%BC%8C%E5%AF%BC%E8%87%B4%E6%8E%A5%E5%8F%A3%20Failed%20to%20load%20response%20data%20%E7%9A%84%E8%A7%A3%E5%86%B3%E8%BF%87%E7%A8%8B/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">记一次浏览器SameSite策略更新，导致接口 Failed to load response data 的解决过程</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/12/22/EasyPlayer.js%E4%BF%AE%E6%94%B9%E9%BB%98%E8%AE%A4%E7%9A%84%E8%AF%B7%E6%B1%82%E6%96%B9%E5%BC%8F%E5%AE%9E%E6%93%8D%E8%BF%87%E7%A8%8B/">
+                        <span class="hidden-mobile">EasyPlayer.js修改默认的请求方式实操过程</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- LeanCloud 统计PV -->
+        <span id="leancloud-site-pv-container" style="display: none">
+            总访问量 
+            <span id="leancloud-site-pv"></span>
+             次
+          </span>
+      
+      
+        <!-- LeanCloud 统计UV -->
+        <span id="leancloud-site-uv-container" style="display: none">
+            总访客数 
+            <span id="leancloud-site-uv"></span>
+             人
+          </span>
+      
+
+    
+  </div>
+
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+  <script defer src="/js/leancloud.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>
